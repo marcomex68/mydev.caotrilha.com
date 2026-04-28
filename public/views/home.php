@@ -1,57 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
-        <meta name="author" content="" />
-        <title>Cão Trilha</title>
-        <!-- Favicon-->
-        <link rel="icon" type="image/x-icon" href="assets/img/portfolio/Logo1.png" />
-        <!-- Font Awesome icons (free version)-->
-        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
-        <!-- Google fonts-->
-        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
-        <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
-        <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="css/styles.css" rel="stylesheet" />
-    </head>
-    <body id="page-top">
-        <!-- Navigation-->
-        <nav class="navbar navbar-expand-lg bg-secondary text-uppercase fixed-top" id="mainNav">
-            <div class="container">
-                <a class="navbar-brand" href="#page-top">Cão Trilha</a>
-                <button class="navbar-toggler text-uppercase font-weight-bold bg-primary text-white rounded" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-                    Menu
-                    <i class="fas fa-bars"></i>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarResponsive">
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#portfolio">Rotina Diária</a></li>
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#about">About</a></li>
-                        <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#contact">Contact</a></li>
-                        <li class="nav-item mx-0 mx-lg-1">
-                            <a class="nav-link py-3 px-0 px-lg-3 rounded btn btn-primary text-white ms-lg-2" href="login.html">
-                                <i class="fas fa-lock me-1"></i> Área Restrita
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
-        <!-- Masthead-->
-        <header class="masthead bg-primary text-white text-center">
-            <div class="container d-flex align-items-center flex-column">
-                <img class="masthead-avatar mb-5" src="assets/img/portfolio/Logo1.png" alt="..." />
-                <h1 class="masthead-heading text-uppercase mb-0">Cão Trilha</h1>
-                <div class="divider-custom divider-light">
-                    <div class="divider-custom-line"></div>
-                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-                    <div class="divider-custom-line"></div>
-                </div>
-                <p class="masthead-subheading font-weight-light mb-0">Dogwalking • Dogsitting • Daycare • Petsitting
-            </div>
-        </header>
+<?php include __DIR__ . "/../includes/header.php"; ?>
+
         <!-- Portfolio Section-->
         <section class="page-section portfolio" id="portfolio">
             <div class="container">
@@ -67,7 +15,7 @@
                             <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
                                 <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
                             </div>
-                            <img class="img-fluid" src="assets/img/portfolio/portfolio1.jpg" alt="..." />
+                            <img class="img-fluid" src="../assets/img/portfolio1.jpg" alt="..." />
                         </div>
                     </div>
                     <div class="col-md-6 col-lg-4 mb-5">
@@ -75,7 +23,7 @@
                             <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
                                 <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
                             </div>
-                            <img class="img-fluid" src="assets/img/portfolio/portfolio2.jpg" alt="..." />
+                            <img class="img-fluid" src="../assets/img/portfolio2.jpg" alt="..." />
                         </div>
                     </div>
                     <div class="col-md-6 col-lg-4 mb-5">
@@ -83,7 +31,7 @@
                             <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
                                 <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
                             </div>
-                            <img class="img-fluid" src="assets/img/portfolio/portfolio3.jpg" alt="..." />
+                            <img class="img-fluid" src="../assets/img/portfolio3.jpg" alt="..." />
                         </div>
                     </div>
                     <div class="col-md-6 col-lg-4 mb-5 mb-lg-0">
@@ -91,7 +39,7 @@
                             <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
                                 <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
                             </div>
-                            <img class="img-fluid" src="assets/img/portfolio/portfolio4.jpg" alt="..." />
+                            <img class="img-fluid" src="../assets/img/portfolio4.jpg" alt="..." />
                         </div>
                     </div>
                     <div class="col-md-6 col-lg-4 mb-5 mb-md-0">
@@ -99,7 +47,7 @@
                             <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
                                 <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
                             </div>
-                            <img class="img-fluid" src="assets/img/portfolio/portfolio5.jpg" alt="..." />
+                            <img class="img-fluid" src="../assets/img/portfolio5.jpg" alt="..." />
                         </div>
                     </div>
                     <div class="col-md-6 col-lg-4">
@@ -107,7 +55,7 @@
                             <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
                                 <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
                             </div>
-                            <img class="img-fluid" src="assets/img/portfolio/portfolio6.jpg" alt="..." />
+                            <img class="img-fluid" src="../assets/img/portfolio6.jpg" alt="..." />
                         </div>
                     </div>
                 </div>
@@ -134,7 +82,7 @@ Mais do que um serviço, queremos ser uma segunda casa para os cães — um loca
         <!-- Contact Section-->
         <section class="page-section" id="contact">
             <div class="container">
-                <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Contact Me</h2>
+                <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Contacta-nos</h2>
                 <div class="divider-custom">
                     <div class="divider-custom-line"></div>
                     <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
@@ -145,29 +93,29 @@ Mais do que um serviço, queremos ser uma segunda casa para os cães — um loca
                         <form id="contactForm" data-sb-form-api-token="API_TOKEN">
                             <div class="form-floating mb-3">
                                 <input class="form-control" id="name" type="text" placeholder="Enter your name..." data-sb-validations="required" />
-                                <label for="name">Full name</label>
-                                <div class="invalid-feedback" data-sb-feedback="name:required">A name is required.</div>
+                                <label for="name">Nome Completo</label>
+                                <div class="invalid-feedback" data-sb-feedback="name:required">Este campo é obrigatório.</div>
                             </div>
                             <div class="form-floating mb-3">
                                 <input class="form-control" id="email" type="email" placeholder="name@example.com" data-sb-validations="required,email" />
-                                <label for="email">Email address</label>
-                                <div class="invalid-feedback" data-sb-feedback="email:required">An email is required.</div>
-                                <div class="invalid-feedback" data-sb-feedback="email:email">Email is not valid.</div>
+                                <label for="email">Email</label>
+                                <div class="invalid-feedback" data-sb-feedback="email:required">Este campo é obrigatório.</div>
+                                <div class="invalid-feedback" data-sb-feedback="email:email">O email não é válido.</div>
                             </div>
                             <div class="form-floating mb-3">
                                 <input class="form-control" id="phone" type="tel" placeholder="(123) 456-7890" data-sb-validations="required" />
-                                <label for="phone">Phone number</label>
-                                <div class="invalid-feedback" data-sb-feedback="phone:required">A phone number is required.</div>
+                                <label for="phone">Número de telefone</label>
+                                <div class="invalid-feedback" data-sb-feedback="phone:required">O número de telefone é obrigatório.</div>
                             </div>
                             <div class="form-floating mb-3">
                                 <textarea class="form-control" id="message" type="text" placeholder="Enter your message here..." style="height: 10rem" data-sb-validations="required"></textarea>
-                                <label for="message">Message</label>
-                                <div class="invalid-feedback" data-sb-feedback="message:required">A message is required.</div>
+                                <label for="message">Mensagem</label>
+                                <div class="invalid-feedback" data-sb-feedback="message:required">Uma mensagem é obrigatória.</div>
                             </div>
                             <div class="d-none" id="submitSuccessMessage">
                                 <div class="text-center mb-3">
-                                    <div class="fw-bolder">Form submission successful!</div>
-                                    To activate this form, sign up at
+                                    <div class="fw-bolder">Formulário enviado com sucesso!</div>
+                                    Para configurar a funcionalidade de envio de email, consulte as instruções do link abaixo.
                                     <br />
                                     <a href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
                                 </div>
@@ -186,7 +134,7 @@ Mais do que um serviço, queremos ser uma segunda casa para os cães — um loca
                     <div class="col-lg-4 mb-5 mb-lg-0 text-center">
                         <h4 class="text-uppercase mb-4" onclick="mostrarMapa()" style="cursor:pointer;">Location</h4>
                         <div id="mapa" style="display:none;">
-                            <img src="assets/img/portfolio/mapaLoc.jpg" alt="Mapa localização" class="img-fluid">
+                            <img src="../assets/img/mapaLoc.jpg" alt="Mapa localização" class="img-fluid">
                         </div>
                         <p class="lead mb-0">
                             R. José Gomes Ferreira 1-92
@@ -243,7 +191,7 @@ Mais do que um serviço, queremos ser uma segunda casa para os cães — um loca
                                         <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
                                         <div class="divider-custom-line"></div>
                                     </div>
-                                    <img class="img-fluid rounded mb-5" src="assets/img/portfolio/portfolio1.jpg" alt="..." />
+                                    <img class="img-fluid rounded mb-5" src="../assets/img/portfolio1.jpg" alt="Logo" style="height: 500px; width:auto; margin-right:10px;" />
                                     <p class="mb-4">Ambiente seguro e supervisionado onde os cães podem brincar, gastar energia e socializar ao longo do dia, sempre com atenção personalizada e muito carinho.</p>
                                     <button class="btn btn-primary" data-bs-dismiss="modal">
                                         <i class="fas fa-xmark fa-fw"></i>
@@ -271,7 +219,7 @@ Mais do que um serviço, queremos ser uma segunda casa para os cães — um loca
                                         <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
                                         <div class="divider-custom-line"></div>
                                     </div>
-                                    <img class="img-fluid rounded mb-5" src="assets/img/portfolio/portfolio2.jpg" alt="..." />
+                                    <img class="img-fluid rounded mb-5" src="../assets/img/portfolio2.jpg" alt="Logo" style="height: 500px; width:auto; margin-right:10px;" />
                                     <p class="mb-4">Cuidados de higiene essenciais para o bem-estar dos cães, incluindo escovagem, limpeza e manutenção básica, sempre com produtos adequados.</p>
                                     <button class="btn btn-primary" data-bs-dismiss="modal">
                                         <i class="fas fa-xmark fa-fw"></i>
@@ -299,7 +247,7 @@ Mais do que um serviço, queremos ser uma segunda casa para os cães — um loca
                                         <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
                                         <div class="divider-custom-line"></div>
                                     </div>
-                                    <img class="img-fluid rounded mb-5 bg-danger" src="assets/img/portfolio/portfolio3.jpg" alt="..." />
+                                    <img class="img-fluid rounded mb-5 bg-danger" src="../assets/img/portfolio3.jpg" alt="Logo" style="height: 500px; width:auto; margin-right:10px;" />
                                     <p class="mb-4 ">Atividades supervisionadas que incentivam comportamentos equilibrados, interação positiva entre cães e desenvolvimento de confiança em ambiente controlado.</p>
                                     <button class="btn btn-primary" data-bs-dismiss="modal">
                                         <i class="fas fa-xmark fa-fw"></i>
@@ -327,7 +275,7 @@ Mais do que um serviço, queremos ser uma segunda casa para os cães — um loca
                                         <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
                                         <div class="divider-custom-line"></div>
                                     </div>
-                                    <img class="img-fluid rounded mb-5" src="assets/img/portfolio/portfolio4.jpg" alt="..." />
+                                    <img class="img-fluid rounded mb-5" src="../assets/img/portfolio4.jpg" alt="Logo" style="height: 500px; width:auto; margin-right:10px;" />
                                     <p class="mb-4">Passeios adaptados às necessidades de cada cão, promovendo exercício físico, bem-estar e estímulos mentais, sempre com segurança e responsabilidade.</p>
                                     <button class="btn btn-primary" data-bs-dismiss="modal">
                                         <i class="fas fa-xmark fa-fw"></i>
@@ -355,7 +303,7 @@ Mais do que um serviço, queremos ser uma segunda casa para os cães — um loca
                                         <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
                                         <div class="divider-custom-line"></div>
                                     </div>
-                                    <img class="img-fluid rounded mb-5" src="assets/img/portfolio/portfolio5.jpg" alt="..." />
+                                    <img class="img-fluid rounded mb-5" src="../assets/img/portfolio5.jpg" alt="Logo" style="height: 500px; width:auto; margin-right:10px;" />
                                     <p class="mb-4">Serviço de estadia confortável e familiar para quando os tutores precisam de se ausentar, garantindo tranquilidade, rotina e cuidados dedicados.</p>
                                     <button class="btn btn-primary" data-bs-dismiss="modal">
                                         <i class="fas fa-xmark fa-fw"></i>
@@ -383,7 +331,7 @@ Mais do que um serviço, queremos ser uma segunda casa para os cães — um loca
                                         <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
                                         <div class="divider-custom-line"></div>
                                     </div>
-                                    <img class="img-fluid rounded mb-5" src="assets/img/portfolio/portfolio6.jpg" alt="..." />
+                                    <img class="img-fluid rounded mb-5" src="../assets/img/portfolio6.jpg" alt="Logo" style="height: 500px; width:auto; margin-right:10px;" />
                                     <p class="mb-4">Atividades ao ar livre em trilhos naturais que proporcionam exercício físico, estímulos mentais e contacto com a natureza, sempre com supervisão e segurança adequadas às capacidades de cada cão.</p>
                                     <button class="btn btn-primary" data-bs-dismiss="modal">
                                         <i class="fas fa-xmark fa-fw"></i>
@@ -399,7 +347,7 @@ Mais do que um serviço, queremos ser uma segunda casa para os cães — um loca
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
-        <script src="js/scripts.js"></script>
+        <script src="./assets/js/scripts.js"></script>
         <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
     </body>
 </html>

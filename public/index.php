@@ -1,0 +1,32 @@
+<?php
+session_start();
+
+require_once __DIR__ . '/../vendor/autoload.php';
+require_once __DIR__ . '/../app/controllers/WebController.php';
+require_once __DIR__ . '/../app/controllers/AuthController.php';
+require_once __DIR__ . '/../app/services/Mailer.php';
+
+
+var_dump($_SESSION);
+
+
+
+
+$uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+
+$uri = str_replace("mydevpiratas.com/public", "", $uri);
+
+$method = $_SERVER['REQUEST_METHOD'];
+
+if($uri === '/' || $uri === '/index' || $uri === '/home') {
+  
+  (new WebController())->index();
+
+} elseif ($uri === '/login' && $method === "GET") {
+  (new WebController())->login();
+
+}else {
+  
+  echo "404";
+
+}

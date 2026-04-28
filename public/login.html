@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>CãoTrilha — Login</title>
+ 
+    <style>
+        *, *::before, *::after { box-sizing: border-box; }
+        :root { font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif; }
+ 
+        body {
+            display: grid;
+            place-items: center;
+            min-height: 100vh;
+            background: #f6f7f9;
+            margin: 0;
+        }
+ 
+        .card {
+            width: min(380px, 100% - 2rem);
+            background: #fff;
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 6px 24px rgba(0,0,0,0.08);
+        }
+ 
+        h2 { margin: 0; color: #ffc41c; }
+        h1 { font-size: 1.25rem; margin: .5rem 0 1rem; }
+ 
+        label {
+            display:block;
+            font-size: .95rem;
+            margin: .5rem 0 .25rem;
+        }
+ 
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: .65rem .75rem;
+            border: 1px solid #ccd1d7;
+            border-radius: 8px;
+            font-size: 1rem;
+        }
+ 
+        .actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: .5rem 0 1rem;
+            font-size: .9rem;
+        }
+ 
+        button[type="submit"] {
+            width: 100%;
+            padding: .75rem;
+            border: 0;
+            border-radius: 8px;
+            background: #ffc41c;
+            color: #fff;
+            font-weight: 600;
+            cursor: pointer;
+        }
+ 
+        button[type="submit"]:hover {
+            opacity: 0.9;
+        }
+ 
+        .input-with-toggle {
+            position: relative;
+        }
+ 
+        .toggle {
+            position: absolute;
+            right: .5rem;
+            top: 50%;
+            transform: translateY(-50%);
+            border: 0;
+            background: none;
+            cursor: pointer;
+            color: #1d75a6;
+            font-size: .85rem;
+        }
+ 
+        .has-toggle {
+            padding-right: 5rem;
+        }
+ 
+        .feedback {
+            margin-top: .75rem;
+            font-size: .9rem;
+            color: #1d75a6;
+            min-height: 1.2em;
+        }
+    </style>
+</head>
+ 
+<body>
+ 
+<main class="card">
+    <h2>CãoTrilha</h2>
+    <h1>Iniciar sessão</h1>
+ 
+    <form id="loginForm">
+        <label for="user">Email ou utilizador</label>
+        <input id="user" type="text" required placeholder="marquinhosjujitsu2680@gmail.com">
+ 
+        <label for="pwd">Palavra-passe</label>
+        <div class="input-with-toggle">
+            <input id="pwd" type="password" class="has-toggle" required placeholder="********">
+            <button type="button" class="toggle" id="togglePwd">mostrar</button>
+        </div>
+ 
+        <div class="actions">
+            <label>
+                <input type="checkbox" id="remember">
+                Manter sessão iniciada
+            </label>
+        </div>
+ 
+        <button type="submit">Entrar</button>
+ 
+        <div id="feedback" class="feedback"></div>
+    </form>
+</main>
+ 
+<script>
+    // Mostrar / ocultar password
+    const toggle = document.getElementById("togglePwd");
+    const pwd = document.getElementById("pwd");
+ 
+    toggle.addEventListener("click", () => {
+        const visivel = pwd.type === "text";
+        pwd.type = visivel ? "password" : "text";
+        toggle.textContent = visivel ? "mostrar" : "ocultar";
+    });
+ 
+    // Login com controlo de sessão
+    const form = document.getElementById("loginForm");
+    const feedback = document.getElementById("feedback");
+ 
+    form.addEventListener("submit", function(e){
+        e.preventDefault();
+ 
+        const user = document.getElementById("user").value.trim();
+        const password = pwd.value.trim();
+        const remember = document.getElementById("remember").checked;
+ 
+        // Credenciais simuladas
+        if(user === "marquinhosjujitsu2680@gmail.com" && password === "1234"){
+ 
+            if(remember){
+                localStorage.setItem("adminLogado", "true");
+            } else {
+                sessionStorage.setItem("adminLogado", "true");
+            }
+ 
+            window.location.href = "admin.html";
+ 
+        } else {
+            feedback.textContent = "Credenciais inválidas.";
+        }
+    });
+</script>
+ 
+</body>
+</html>
+ 

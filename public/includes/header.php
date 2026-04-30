@@ -34,7 +34,7 @@
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#about">About</a></li>
                         <li class="nav-item mx-0 mx-lg-1"><a class="nav-link py-3 px-0 px-lg-3 rounded" href="#contact">Contact</a></li>
                         <li class="nav-item mx-0 mx-lg-1">
-                            <a class="nav-link py-3 px-0 px-lg-3 rounded btn btn-primary text-white ms-lg-2" href="login.html">
+                            <a class="nav-link py-3 px-0 px-lg-3 rounded btn btn-primary text-white ms-lg-2" href="views/login.php">
                                 <i class="fas fa-lock me-1"></i> Área Restrita
                             </a>
                         </li>

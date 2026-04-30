@@ -1,0 +1,89 @@
+
+        *, *::before, *::after { box-sizing: border-box; }
+        :root { font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif; }
+ 
+        body {
+            display: grid;
+            place-items: center;
+            min-height: 100vh;
+            background: #f6f7f9;
+            margin: 0;
+        }
+ 
+        .card {
+            width: min(380px, 100% - 2rem);
+            background: #fff;
+            padding: 1.5rem;
+            border-radius: 12px;
+            box-shadow: 0 6px 24px rgba(0,0,0,0.08);
+        }
+ 
+        h2 { margin: 0; color: #ffc41c; }
+        h1 { font-size: 1.25rem; margin: .5rem 0 1rem; }
+ 
+        label {
+            display:block;
+            font-size: .95rem;
+            margin: .5rem 0 .25rem;
+        }
+ 
+        input[type="text"],
+        input[type="password"] {
+            width: 100%;
+            padding: .65rem .75rem;
+            border: 1px solid #ccd1d7;
+            border-radius: 8px;
+            font-size: 1rem;
+        }
+ 
+        .actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: .5rem 0 1rem;
+            font-size: .9rem;
+        }
+ 
+        button[type="submit"] {
+            width: 100%;
+            padding: .75rem;
+            border: 0;
+            border-radius: 8px;
+            background: #ffc41c;
+            color: #fff;
+            font-weight: 600;
+            cursor: pointer;
+        }
+ 
+        button[type="submit"]:hover {
+            opacity: 0.9;
+        }
+ 
+        .input-with-toggle {
+            position: relative;
+        }
+ 
+        .toggle {
+            position: absolute;
+            right: .5rem;
+            top: 50%;
+            transform: translateY(-50%);
+            border: 0;
+            background: none;
+            cursor: pointer;
+            color: #1d75a6;
+            font-size: .85rem;
+        }
+ 
+        .has-toggle {
+            padding-right: 5rem;
+        }
+ 
+        .feedback {
+            margin-top: .75rem;
+            font-size: .9rem;
+            color: #1d75a6;
+            min-height: 1.2em;
+        }
+
+ 

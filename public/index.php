@@ -7,7 +7,6 @@ require_once __DIR__ . '/../app/controllers/AuthController.php';
 require_once __DIR__ . '/../app/services/Mailer.php';
 
 
-var_dump($_SESSION);
 
 
 
@@ -28,6 +27,10 @@ if($uri === '/' || $uri === '/index' || $uri === '/home') {
 } elseif ($uri === '/login' && $method === "POST") {
   
   (new AuthController())->loginWeb();
+
+} elseif ($uri === '/admin' && $method === "GET") {
+
+  (new WebController())->admin();
 
 }else {
   

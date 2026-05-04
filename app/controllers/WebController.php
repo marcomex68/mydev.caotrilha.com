@@ -16,5 +16,9 @@ class WebController {
     $this->view('login');
   }
 
+  public function admin()
+  {
+    $this->view('admin');
+  }
 
 }

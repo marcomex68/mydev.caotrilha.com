@@ -1,10 +1,12 @@
 <?php
  
-class Cliente
+class User
 
 {
 
   private int $id;
+
+  private bool $is_admin;
 
   private string $nome;
 
@@ -20,6 +22,8 @@ class Cliente
 
     int $id = 0,
 
+    bool $is_admin = false,
+
     string $nome = '',
 
     string $telefone = '',
@@ -33,6 +37,8 @@ class Cliente
   ) {
 
     $this->id = $id;
+
+    $this->is_admin = $is_admin;
 
     $this->nome = $nome;
 
@@ -59,6 +65,22 @@ class Cliente
   {
 
     $this->id = $id;
+
+  }
+
+  public function getIsAdmin(): bool
+
+  {
+
+    return $this->is_admin;
+
+  }
+
+  public function setIsAdmin(bool $is_admin): void
+
+  {
+
+    $this->is_admin = $is_admin;
 
   }
  

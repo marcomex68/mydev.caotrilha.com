@@ -13,10 +13,6 @@
  
             <button class="btn btn-primary w-100">Entrar</button>
           </form>
- 
-        <div class="text-center .mt-3">
-            <a class="text-decoration-none" href="/signup">Não tem uma conta? Registre-se aqui.</a>
-          </div>
         </div>
       </div>
     </div>

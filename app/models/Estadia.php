@@ -6,8 +6,6 @@ class Estadia
 
   private int $id;
 
-  private int $idCao;
-
   private string $dataEntrada;
 
   private string $dataSaida;
@@ -20,8 +18,6 @@ class Estadia
 
     int $id = 0,
 
-    int $idCao = 0,
-
     string $dataEntrada = '',
 
     string $dataSaida = '',
@@ -33,8 +29,6 @@ class Estadia
   ) {
 
     $this->id = $id;
-
-    $this->idCao = $idCao;
 
     $this->dataEntrada = $dataEntrada;
 
@@ -59,22 +53,6 @@ class Estadia
   {
 
     $this->id = $id;
-
-  }
- 
-  public function getIdCao(): int
-
-  {
-
-    return $this->idCao;
-
-  }
-
-  public function setIdCao(int $idCao): void
-
-  {
-
-    $this->idCao = $idCao;
 
   }
  

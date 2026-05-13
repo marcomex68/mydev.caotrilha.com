@@ -6,8 +6,6 @@ class Trilha
 
   private int $id;
 
-  private int $idCao;
-
   private string $nome;
 
   private string $data;
@@ -16,13 +14,10 @@ class Trilha
 
   private string $localidade;
 
-  private string $localizacao;
  
   public function __construct(
 
     int $id = 0,
-
-    int $idCao = 0,
 
     string $nome = '',
 
@@ -30,15 +25,11 @@ class Trilha
 
     float $kms = 0.0,
 
-    string $localidade = '',
-
-    string $localizacao = ''
+    string $localidade = ''
 
   ) {
 
     $this->id = $id;
-
-    $this->idCao = $idCao;
 
     $this->nome = $nome;
 
@@ -47,8 +38,6 @@ class Trilha
     $this->kms = $kms;
 
     $this->localidade = $localidade;
-
-    $this->localizacao = $localizacao;
 
   }
  
@@ -68,21 +57,6 @@ class Trilha
 
   }
  
-  public function getIdCao(): int
-
-  {
-
-    return $this->idCao;
-
-  }
-
-  public function setIdCao(int $idCao): void
-
-  {
-
-    $this->idCao = $idCao;
-
-  }
  
   public function getNome(): string
 
@@ -148,21 +122,7 @@ class Trilha
 
   }
  
-  public function getLocalizacao(): string
 
-  {
-
-    return $this->localizacao;
-
-  }
-
-  public function setLocalizacao(string $localizacao): void
-
-  {
-
-    $this->localizacao = $localizacao;
-
-  }
 
 }
  

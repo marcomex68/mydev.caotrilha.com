@@ -9,32 +9,65 @@ class AuthController
     require_once __DIR__ . '/../../public/views/' . $name . '.php';
   }
 
-  public function loginWeb()
-  {
+  public function loginWeb() {
     $email = trim($_POST['email']) ?? '';
-
+    
     $password = trim($_POST['password']) ?? '';
-
-
-    if (empty($email) || empty($password)) {
-      echo "Email e password são obrigatórios";
+    
+    // Se não houver email ou password, mostrar erro
+    // é preciso lançar exceção para o index.php apanhar e mostrar o erro via flash message
+    if(empty($email) || empty($password)) {
+      $_SESSION['toast'] = [
+        'type' => 'error',
+        'message' => "Email e password são obrigatórios"
+      ];
+      header("Location: /login");
       exit;
     }
 
     $user = (new UserDAO())->findByEmail($email);
-    // Criar session
-    if (!$user) {
-      die("Utilizador não encontrado ou não é administrador");
+
+    if(!$user) {
+      $_SESSION['toast'] = [
+        'type' => 'error',
+        'message' => "Dados de login inválidos"
+      ];
+      header("Location: /login");
+      exit;
     }
+    // Utilizador foi encontrado - verificar password
+    if(password_verify($password, $user->getPassword())) {
+      //var_dump("Password correta");
+      $_SESSION['token'] = [
+        'id' => $user->getId(),
+        'username' => $user->getNome(),
+        'email' => $user->getEmail(),
+        'is_admin' => $user->getIsAdmin()
+      ];
 
-    session_start();
-        $_SESSION['user_id']    = $user->getId();
-        $_SESSION['user_name']  = $user->getNome();
-        $_SESSION['is_admin']   = $user->getIsAdmin();
- 
-        header('Location: /admin');
-        exit;
+      $_SESSION['toast'] = [
+        'type' => 'success',
+        'message' => "Bem-vindo de volta, " . $user->getNome() . "!"
+      ];
 
+       header("Location: /admin");
+       exit;
+      //header("Location: /");
+      //exit;
+    } else {
+      $_SESSION['toast'] = [
+        'type' => 'error',
+        'message' => "Dados de login inválidos"
+      ];
+      header("Location: /login");
+      exit;
+    }    
+
+}
+
+  public function logoutWeb() {
+    session_destroy();
+    header("Location: /");
+    exit;
   }
-
 } 

@@ -4,6 +4,7 @@ session_start();
 require_once __DIR__ . '/../vendor/autoload.php';
 require_once __DIR__ . '/../app/controllers/WebController.php';
 require_once __DIR__ . '/../app/controllers/AuthController.php';
+require_once __DIR__ . '/../app/middleware/AuthMiddlewareWeb.php';
 require_once __DIR__ . '/../app/services/Mailer.php';
 
 
@@ -31,6 +32,31 @@ if($uri === '/' || $uri === '/index' || $uri === '/home') {
 } elseif ($uri === '/admin' && $method === "GET") {
 
   (new WebController())->admin();
+
+} elseif ($uri === '/clientes' && $method === "GET") {
+
+  (new WebController())->clientes();
+
+} elseif ($uri === '/caes' && $method === "GET") {
+
+  (new WebController())->caes();
+
+} elseif ($uri === '/trilhas' && $method === "GET") {
+
+  (new WebController())->trilhas();
+
+} elseif ($uri === '/estadias' && $method === "GET") {
+
+  (new WebController())->estadias();
+
+} elseif ($uri === '/definicoes' && $method === "GET") {
+
+  (new WebController())->definicoes();
+
+} elseif ($uri === '/logout' && $method === "POST") {
+  
+  (new AuthController())->logoutWeb();
+
 
 }else {
   

@@ -1,51 +1,4 @@
-<!doctype html>
-<html lang="pt">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Trilhas • CãoTrilha</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-</head>
-
-<body class="bg-body-tertiary">
-
-<!-- NAVBAR -->
-<nav class="navbar navbar-dark bg-dark">
-  <div class="container-fluid">
-    <button class="btn btn-outline-light" data-bs-toggle="offcanvas" data-bs-target="#menuLateral">☰</button>
-    <span class="navbar-brand ms-2">CãoTrilha Backoffice</span>
-
-    <div class="dropdown">
-      <button class="btn btn-outline-light dropdown-toggle" data-bs-toggle="dropdown">
-        admin@esjaloures.org
-      </button>
-      <ul class="dropdown-menu dropdown-menu-end">
-        <li><span class="dropdown-item-text">Sessão ativa</span></li>
-        <li><hr class="dropdown-divider"></li>
-        <li><a class="dropdown-item text-danger" href="login.html">Sair</a></li>
-      </ul>
-    </div>
-  </div>
-</nav>
-
-<!-- MENU -->
-<div class="offcanvas offcanvas-start text-bg-dark" tabindex="-1" id="menuLateral">
-  <div class="offcanvas-header">
-    <h5 class="offcanvas-title">Menu</h5>
-    <button class="btn-close btn-close-white" data-bs-dismiss="offcanvas"></button>
-  </div>
-
-  <div class="offcanvas-body">
-    <nav class="nav flex-column gap-1">
-      <a href="index.html" class="nav-link text-white">🏠 Dashboard</a>
-      <a href="caes.html" class="nav-link text-white">🐶 Cães</a>
-      <a href="trilhas.html" class="nav-link text-warning">🌲 Trilhas</a>
-      <a href="estadias.html" class="nav-link text-white">🏡 Estadias</a>
-      <a href="clientes.html" class="nav-link text-white">👤 Clientes</a>
-      <a href="definicoes.html" class="nav-link text-white">⚙️ Definições</a>
-    </nav>
-  </div>
-</div>
+<?php include __DIR__ . "/../includes/header_admin.php"; ?>
 
 <!-- CONTEÚDO -->
 <div class="container py-4">
@@ -64,6 +17,7 @@
       <table class="table table-hover mb-0">
         <thead class="table-dark">
           <tr>
+            <th>Id</th>
             <th>Nome</th>
             <th>Data</th>
             <th>Kms</th>
@@ -73,12 +27,19 @@
         </thead>
 
         <tbody>
-          <tr><td>Parque Nacional Peneda Gerês</td><td>2025-06-01</td><td>10 km</td><td>Gerês</td><td><button class="btn btn-sm btn-outline-danger">🗑</button></td></tr>
-          <tr><td>Pico do Areeiro</td><td>2025-06-05</td><td>7 km</td><td>Madeira</td><td><button class="btn btn-sm btn-outline-danger">🗑</button></td></tr>
-          <tr><td>Sete Vales Suspensos</td><td>2025-06-15</td><td>12 km</td><td>Algarve</td><td><button class="btn btn-sm btn-outline-danger">🗑</button></td></tr>
-          <tr><td>Vale do Rio Olo</td><td>2025-07-15</td><td>11 km</td><td>Mondim de Basto</td><td><button class="btn btn-sm btn-outline-danger">🗑</button></td></tr>
-          <tr><td>Praia da Costa</td><td>2025-07-25</td><td>5 km</td><td>Costa da Caparica</td><td><button class="btn btn-sm btn-outline-danger">🗑</button></td></tr>
-        </tbody>
+          <?php foreach ($trilhas as $trilha) : ?>
+            <tr>
+              <td><?= $trilha->getId() ?></td>
+              <td><?= $trilha->getNome() ?></td>
+              <td><?= $trilha->getData() ?></td>
+              <td><?= $trilha->getKms() ?></td>
+              <td><?= $trilha->getLocalidade() ?></td>
+              <td class="text-end">
+                <button class="btn btn-sm btn-outline-secondary">Editar</button>
+                <button class="btn btn-sm btn-outline-danger">Eliminar</button>
+              </td>
+            </tr>
+          <?php endforeach; ?>
 
       </table>
     </div>

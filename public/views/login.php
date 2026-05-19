@@ -18,3 +18,18 @@
     </div>
   </div>
 </div>
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+ 
+    <script>
+        const toast = <?= json_encode($_SESSION["toast"] ?? null) ?>;
+        <?php unset($_SESSION['toast']); ?>
+        if (toast) {
+            toastr[toast.type](toast.message);
+        }
+    </script>
+ 
+</body>
+ 
+</html>

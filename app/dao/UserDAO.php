@@ -125,4 +125,25 @@ public function getTrilhas(): array
 
     return $trilhas;
 }
+
+public function getEstadias(): array
+{
+    $sql = "SELECT * FROM estadias";
+    $stmt = $this->conn->prepare($sql);
+    $stmt->execute();
+    $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+    $estadias = [];
+    foreach ($rows as $row) {
+      $estadias[] = new Estadia(
+    $row['id'],
+    $row['data_entrada'],
+    $row['data_saida'],
+    $row['preco_total'],
+    $row['pago']
+); 
+    }
+
+    return $estadias;
+}
 }

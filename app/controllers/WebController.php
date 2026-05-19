@@ -48,7 +48,10 @@ class WebController {
 
   public function estadias()
   {
-    $this->view('estadias');
+    $estadias = (new UserDAO())->getEstadias();
+    $this->view('estadias', [
+      'estadias' => $estadias
+    ]);
   }
 
   public function definicoes()

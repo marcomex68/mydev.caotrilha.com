@@ -24,7 +24,6 @@
             <?php endif; ?>
         </button>
         <ul class="dropdown-menu dropdown-menu-end">
-          <li><span class="dropdown-item-text">Sessão ativa</span></li>
           <li>
             <hr class="dropdown-divider">
           </li>

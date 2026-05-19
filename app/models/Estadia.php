@@ -104,7 +104,7 @@ class Estadia
 
   }
  
-  public function isPago(): bool
+  public function getPago(): bool
 
   {
 

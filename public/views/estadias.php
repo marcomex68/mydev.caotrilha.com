@@ -25,13 +25,21 @@
             <th></th>
           </tr>
         </thead>
-
         <tbody>
-          <tr><td>1</td><td>2025-01-02</td><td>2025-01-05</td><td>€75</td><td><span class="badge bg-success">Pago</span></td><td><button class="btn btn-sm btn-outline-danger">🗑</button></td></tr>
-          <tr><td>2</td><td>2025-01-10</td><td>2025-01-15</td><td>€125</td><td><span class="badge bg-warning text-dark">Pendente</span></td><td><button class="btn btn-sm btn-outline-danger">🗑</button></td></tr>
-          <tr><td>3</td><td>2025-02-01</td><td>2025-02-03</td><td>€50</td><td><span class="badge bg-success">Pago</span></td><td><button class="btn btn-sm btn-outline-danger">🗑</button></td></tr>
-          <tr><td>4</td><td>2025-02-05</td><td>2025-02-10</td><td>€125</td><td><span class="badge bg-success">Pago</span></td><td><button class="btn btn-sm btn-outline-danger">🗑</button></td></tr>
-          <tr><td>5</td><td>2025-02-12</td><td>2025-02-14</td><td>€50</td><td><span class="badge bg-warning text-dark">Pendente</span></td><td><button class="btn btn-sm btn-outline-danger">🗑</button></td></tr>
+          <?php foreach ($estadias as $estadia): ?>
+            <tr>
+              <td><?= $estadia->getId() ?></td>
+              <td><?= $estadia->getDataEntrada() ?></td>
+              <td><?= $estadia->getDataSaida() ?></td>
+              <td><?= $estadia->getPrecoTotal() ?></td>
+              <td><?php if ($estadia->getPago() ===  true): ?>
+                                <span class="badge bg-success">Pago</span>
+                            <?php else: ?>
+                                <span class="badge bg-danger">Pendente</span>
+                            <?php endif; ?></td>
+              <td><button class="btn btn-sm btn-outline-danger">🗑</button></td>
+            </tr>
+          <?php endforeach; ?>
         </tbody>
 
       </table>

@@ -95,19 +95,6 @@ if($uri === '/' || $uri === '/index' || $uri === '/home') {
     (new WebController())->estadias();
   }
 
-} elseif ($uri === '/definicoes' && $method === "GET") {
-
- if (!$isLogin) {
-    $_SESSION['toast'] = [
-      'type' => 'error',
-      'message' => 'Acesso negado. Faça login para continuar.'
-    ];
-    header("Location: /login");
-    exit();
-  }else{
-    (new WebController())->definicoes();
-  }
-
 } elseif ($uri === '/logout' && $method === "POST") {
   
   (new AuthController())->logoutWeb();

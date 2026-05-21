@@ -54,11 +54,19 @@
     </div>
 
     <!-- CARDS KPI -->
+     <div class="col-6 col-md-3">
+        <div class="card shadow-sm text-center h-100">
+          <div class="card-body">
+            <div class="text-body-secondary small mb-1">Clientes</div>
+            <h3 class="mb-0 fw-bold">15</h3>
+          </div>
+        </div>
+      </div>
     <div class="row g-3 mb-4">
       <div class="col-6 col-md-3">
         <div class="card shadow-sm text-center h-100">
           <div class="card-body">
-            <div class="text-body-secondary small mb-1">Cães na creche</div>
+            <div class="text-body-secondary small mb-1">Cães</div>
             <h3 class="mb-0 fw-bold">12</h3>
           </div>
         </div>
@@ -66,7 +74,7 @@
       <div class="col-6 col-md-3">
         <div class="card shadow-sm text-center h-100">
           <div class="card-body">
-            <div class="text-body-secondary small mb-1">Trilhas hoje</div>
+            <div class="text-body-secondary small mb-1">Trilhas</div>
             <h3 class="mb-0 fw-bold">2</h3>
           </div>
         </div>
@@ -74,16 +82,8 @@
       <div class="col-6 col-md-3">
         <div class="card shadow-sm text-center h-100">
           <div class="card-body">
-            <div class="text-body-secondary small mb-1">Estadias ativas</div>
+            <div class="text-body-secondary small mb-1">Estadias</div>
             <h3 class="mb-0 fw-bold">5</h3>
-          </div>
-        </div>
-      </div>
-      <div class="col-6 col-md-3">
-        <div class="card shadow-sm text-center h-100">
-          <div class="card-body">
-            <div class="text-body-secondary small mb-1">Receita hoje</div>
-            <h3 class="mb-0 fw-bold">€120</h3>
           </div>
         </div>
       </div>

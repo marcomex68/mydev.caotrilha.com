@@ -19,6 +19,7 @@ class WebController {
 
   public function admin()
   {
+    
     $this->view('admin');
   }
 
@@ -53,10 +54,4 @@ class WebController {
       'estadias' => $estadias
     ]);
   }
-
-  public function definicoes()
-  {
-    $this->view('definicoes');
-  }
-
 }

@@ -18,7 +18,6 @@
             <a href="/caes" class="text-decoration-none text-white">Cães</a>
             <a href="/trilhas" class="text-decoration-none text-white">Trilhas</a>
             <a href="/estadias" class="text-decoration-none text-white">Estadias</a>
-            <a href="/definicoes" class="text-decoration-none text-white">Definições</a>
           </div>
         </div>
 

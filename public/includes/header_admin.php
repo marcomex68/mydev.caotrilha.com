@@ -49,7 +49,6 @@
         <a href="/caes" class="nav-link text-white">Cães</a>
         <a href="/trilhas" class="nav-link text-white">Trilhas</a>
         <a href="/estadias" class="nav-link text-white">Estadias</a>
-        <a href="/definicoes" class="nav-link text-white">Definições</a>
       </nav>
     </div>
   </div>

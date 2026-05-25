@@ -1,5 +1,5 @@
 <?php
- 
+
 class User
 
 {
@@ -17,7 +17,7 @@ class User
   private string $morada;
 
   private string $password;
- 
+
   public function __construct(
 
     int $id = 0,
@@ -49,15 +49,13 @@ class User
     $this->morada = $morada;
 
     $this->password = $password;
-
   }
- 
+
   public function getId(): int
 
   {
 
     return $this->id;
-
   }
 
   public function setId(int $id): void
@@ -65,7 +63,6 @@ class User
   {
 
     $this->id = $id;
-
   }
 
   public function getIsAdmin(): bool
@@ -73,7 +70,6 @@ class User
   {
 
     return $this->is_admin;
-
   }
 
   public function setIsAdmin(bool $is_admin): void
@@ -81,15 +77,13 @@ class User
   {
 
     $this->is_admin = $is_admin;
-
   }
- 
+
   public function getNome(): string
 
   {
 
     return $this->nome;
-
   }
 
   public function setNome(string $nome): void
@@ -97,15 +91,13 @@ class User
   {
 
     $this->nome = $nome;
-
   }
- 
+
   public function getTelefone(): string
 
   {
 
     return $this->telefone;
-
   }
 
   public function setTelefone(string $telefone): void
@@ -113,15 +105,13 @@ class User
   {
 
     $this->telefone = $telefone;
-
   }
- 
+
   public function getEmail(): string
 
   {
 
     return $this->email;
-
   }
 
   public function setEmail(string $email): void
@@ -129,15 +119,13 @@ class User
   {
 
     $this->email = $email;
-
   }
- 
+
   public function getMorada(): string
 
   {
 
     return $this->morada;
-
   }
 
   public function setMorada(string $morada): void
@@ -145,15 +133,13 @@ class User
   {
 
     $this->morada = $morada;
-
   }
- 
+
   public function getPassword(): string
 
   {
 
     return $this->password;
-
   }
 
   public function setPassword(string $password): void
@@ -161,8 +147,5 @@ class User
   {
 
     $this->password = $password;
-
   }
-
 }
- 

@@ -66,8 +66,11 @@ class AuthController
 }
 
   public function logoutWeb() {
+    $toast = ['type' => 'success', 'message' => "Sessão terminada com sucesso!"];
     session_destroy();
-    header("Location: /");
+    session_start();             
+    $_SESSION['toast'] = $toast; 
+    header("Location: /home");
     exit;
-  }
+}
 } 

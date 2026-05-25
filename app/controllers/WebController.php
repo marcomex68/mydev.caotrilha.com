@@ -1,14 +1,18 @@
 <?php
 
-class WebController {
+class WebController
+{
 
 
-  private function view($viewName, $data = []) {
+  private function view($viewName, $data = [])
+  {
     extract($data);
     require_once __DIR__ . "/../../public/views/{$viewName}.php";
-  }
+      
+    }
 
-  public function index() {
+  public function index()
+  {
     $this->view('home');
   }
 
@@ -19,8 +23,16 @@ class WebController {
 
   public function admin()
   {
-    
-    $this->view('admin');
+    $usersCount = (new UserDAO())->getUsersCount();
+    $caesCount = (new UserDAO())->getCaesCount();
+    $trilhasCount = (new UserDAO())->getTrilhasCount();
+    $estadiasCount = (new UserDAO())->getEstadiasCount();
+    $this->view('admin', [
+      'userCount' => $usersCount,
+      'caesCount' => $caesCount,
+      'trilhasCount' => $trilhasCount,
+      'estadiasCount' => $estadiasCount
+    ]);
   }
 
   public function clientes()

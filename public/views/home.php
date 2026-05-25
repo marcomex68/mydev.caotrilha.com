@@ -1,353 +1,372 @@
 <?php include __DIR__ . "/../includes/header.php"; ?>
 
-        <!-- Portfolio Section-->
-        <section class="page-section portfolio" id="portfolio">
-            <div class="container">
-                <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Rotina Diária</h2>
-                <div class="divider-custom">
-                    <div class="divider-custom-line"></div>
-                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-                    <div class="divider-custom-line"></div>
-                </div>
-                <div class="row justify-content-center">
-                    <div class="col-md-6 col-lg-4 mb-5">
-                        <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal1">
-                            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                                <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
-                            </div>
-                            <img class="img-fluid" src="../assets/img/portfolio1.jpg" alt="..." />
-                        </div>
+<!-- Portfolio Section-->
+<section class="page-section portfolio" id="portfolio">
+    <div class="container">
+        <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Rotina Diária</h2>
+        <div class="divider-custom">
+            <div class="divider-custom-line"></div>
+            <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+            <div class="divider-custom-line"></div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-md-6 col-lg-4 mb-5">
+                <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal1">
+                    <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                        <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
                     </div>
-                    <div class="col-md-6 col-lg-4 mb-5">
-                        <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal2">
-                            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                                <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
-                            </div>
-                            <img class="img-fluid" src="../assets/img/portfolio2.jpg" alt="..." />
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4 mb-5">
-                        <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal3">
-                            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                                <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
-                            </div>
-                            <img class="img-fluid" src="../assets/img/portfolio3.jpg" alt="..." />
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4 mb-5 mb-lg-0">
-                        <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal4">
-                            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                                <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
-                            </div>
-                            <img class="img-fluid" src="../assets/img/portfolio4.jpg" alt="..." />
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4 mb-5 mb-md-0">
-                        <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal5">
-                            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                                <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
-                            </div>
-                            <img class="img-fluid" src="../assets/img/portfolio5.jpg" alt="..." />
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-4">
-                        <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal6">
-                            <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
-                                <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
-                            </div>
-                            <img class="img-fluid" src="../assets/img/portfolio6.jpg" alt="..." />
-                        </div>
-                    </div>
+                    <img class="img-fluid" src="../assets/img/portfolio1.jpg" alt="..." />
                 </div>
             </div>
-        </section>
-        <!-- About Section-->
-        <section class="page-section bg-primary text-white mb-0" id="about">
-            <div class="container">
-                <h2 class="page-section-heading text-center text-uppercase text-white">About</h2>
-                <div class="divider-custom divider-light">
-                    <div class="divider-custom-line"></div>
-                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-                    <div class="divider-custom-line"></div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-4 ms-auto"><p class="lead">Somos um espaço dedicado ao bem-estar, segurança e felicidade dos cães, criado com o objetivo de proporcionar uma experiência tranquila tanto para os animais como para os seus tutores. Acreditamos que cada cão é único e merece atenção individualizada, carinho e um ambiente onde se sinta confortável e confiante.
-Oferecemos serviços de creche diária, passeios, estadias, socialização e cuidados de higiene, sempre. </p></div>
-                    <div class="col-lg-4 me-auto"><p class="lead">Acompanhamento responsável e focado nas necessidades de cada patudo, o nosso compromisso é garantir que os cães possam brincar, gastar energia, relaxar e conviver de forma saudável, num espaço seguro e supervisionado.
-Mais do que um serviço, queremos ser uma segunda casa para os cães — um local onde recebem amor, respeito e cuidados de qualidade todos os dias.</p></div>
-                </div>
-                <div class="text-center mt-4"></div>
-            </div>
-        </section>
-        <!-- Contact Section-->
-        <section class="page-section" id="contact">
-            <div class="container">
-                <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Contacta-nos</h2>
-                <div class="divider-custom">
-                    <div class="divider-custom-line"></div>
-                    <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-                    <div class="divider-custom-line"></div>
-                </div>
-                <div class="row justify-content-center">
-                    <div class="col-lg-8 col-xl-7">
-                        <form id="contactForm" data-sb-form-api-token="API_TOKEN">
-                            <div class="form-floating mb-3">
-                                <input class="form-control" id="name" type="text" placeholder="Enter your name..." data-sb-validations="required" />
-                                <label for="name">Nome Completo</label>
-                                <div class="invalid-feedback" data-sb-feedback="name:required">Este campo é obrigatório.</div>
-                            </div>
-                            <div class="form-floating mb-3">
-                                <input class="form-control" id="email" type="email" placeholder="name@example.com" data-sb-validations="required,email" />
-                                <label for="email">Email</label>
-                                <div class="invalid-feedback" data-sb-feedback="email:required">Este campo é obrigatório.</div>
-                                <div class="invalid-feedback" data-sb-feedback="email:email">O email não é válido.</div>
-                            </div>
-                            <div class="form-floating mb-3">
-                                <input class="form-control" id="phone" type="tel" placeholder="(123) 456-7890" data-sb-validations="required" />
-                                <label for="phone">Número de telefone</label>
-                                <div class="invalid-feedback" data-sb-feedback="phone:required">O número de telefone é obrigatório.</div>
-                            </div>
-                            <div class="form-floating mb-3">
-                                <textarea class="form-control" id="message" type="text" placeholder="Enter your message here..." style="height: 10rem" data-sb-validations="required"></textarea>
-                                <label for="message">Mensagem</label>
-                                <div class="invalid-feedback" data-sb-feedback="message:required">Uma mensagem é obrigatória.</div>
-                            </div>
-                            <div class="d-none" id="submitSuccessMessage">
-                                <div class="text-center mb-3">
-                                    <div class="fw-bolder">Formulário enviado com sucesso!</div>
-                                    Para configurar a funcionalidade de envio de email, consulte as instruções do link abaixo.
-                                    <br />
-                                    <a href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
-                                </div>
-                            </div>
-                            <div class="d-none" id="submitErrorMessage"><div class="text-center text-danger mb-3">Error sending message!</div></div>
-                            <button class="btn btn-primary btn-xl disabled" id="submitButton" type="submit">Send</button>
-                        </form>
+            <div class="col-md-6 col-lg-4 mb-5">
+                <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal2">
+                    <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                        <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
                     </div>
+                    <img class="img-fluid" src="../assets/img/portfolio2.jpg" alt="..." />
                 </div>
             </div>
-        </section>
-        <!-- Footer-->
-        <footer class="footer text-center">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-4 mb-5 mb-lg-0 text-center">
-                        <h4 class="text-uppercase mb-4" onclick="mostrarMapa()" style="cursor:pointer;">Location</h4>
-                        <div id="mapa" style="display:none;">
-                            <img src="../assets/img/mapaLoc.jpg" alt="Mapa localização" class="img-fluid">
-                        </div>
-                        <p class="lead mb-0">
-                            R. José Gomes Ferreira 1-92
+            <div class="col-md-6 col-lg-4 mb-5">
+                <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal3">
+                    <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                        <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
+                    </div>
+                    <img class="img-fluid" src="../assets/img/portfolio3.jpg" alt="..." />
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4 mb-5 mb-lg-0">
+                <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal4">
+                    <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                        <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
+                    </div>
+                    <img class="img-fluid" src="../assets/img/portfolio4.jpg" alt="..." />
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4 mb-5 mb-md-0">
+                <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal5">
+                    <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                        <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
+                    </div>
+                    <img class="img-fluid" src="../assets/img/portfolio5.jpg" alt="..." />
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4">
+                <div class="portfolio-item mx-auto" data-bs-toggle="modal" data-bs-target="#portfolioModal6">
+                    <div class="portfolio-item-caption d-flex align-items-center justify-content-center h-100 w-100">
+                        <div class="portfolio-item-caption-content text-center text-white"><i class="fas fa-plus fa-3x"></i></div>
+                    </div>
+                    <img class="img-fluid" src="../assets/img/portfolio6.jpg" alt="..." />
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Sobre Nós Section-->
+<section class="page-section bg-primary text-white mb-0" id="Sobre Nós">
+    <div class="container">
+        <h2 class="page-section-heading text-center text-uppercase text-white">Sobre Nós</h2>
+        <div class="divider-custom divider-light">
+            <div class="divider-custom-line"></div>
+            <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+            <div class="divider-custom-line"></div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4 ms-auto">
+                <p class="lead">Somos um espaço dedicado ao bem-estar, segurança e felicidade dos cães, criado com o objetivo de proporcionar uma experiência tranquila tanto para os animais como para os seus tutores. Acreditamos que cada cão é único e merece atenção individualizada, carinho e um ambiente onde se sinta confortável e confiante.
+                    Oferecemos serviços de creche diária, passeios, estadias, socialização e cuidados de higiene, sempre. </p>
+            </div>
+            <div class="col-lg-4 me-auto">
+                <p class="lead">Acompanhamento responsável e focado nas necessidades de cada patudo, o nosso compromisso é garantir que os cães possam brincar, gastar energia, relaxar e conviver de forma saudável, num espaço seguro e supervisionado.
+                    Mais do que um serviço, queremos ser uma segunda casa para os cães — um local onde recebem amor, respeito e cuidados de qualidade todos os dias.</p>
+            </div>
+        </div>
+        <div class="text-center mt-4"></div>
+    </div>
+</section>
+<!-- Contact Section-->
+<section class="page-section" id="contacto">
+    <div class="container">
+        <h2 class="page-section-heading text-center text-uppercase text-secondary mb-0">Contacta-nos</h2>
+        <div class="divider-custom">
+            <div class="divider-custom-line"></div>
+            <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+            <div class="divider-custom-line"></div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-lg-8 col-xl-7">
+                <form id="contactForm" data-sb-form-api-token="API_TOKEN">
+                    <div class="form-floating mb-3">
+                        <input class="form-control" id="name" type="text" placeholder="Enter your name..." data-sb-validations="required" />
+                        <label for="name">Nome Completo</label>
+                        <div class="invalid-feedback" data-sb-feedback="name:required">Este campo é obrigatório.</div>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input class="form-control" id="email" type="email" placeholder="name@example.com" data-sb-validations="required,email" />
+                        <label for="email">Email</label>
+                        <div class="invalid-feedback" data-sb-feedback="email:required">Este campo é obrigatório.</div>
+                        <div class="invalid-feedback" data-sb-feedback="email:email">O email não é válido.</div>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input class="form-control" id="phone" type="tel" placeholder="(123) 456-7890" data-sb-validations="required" />
+                        <label for="phone">Número de telefone</label>
+                        <div class="invalid-feedback" data-sb-feedback="phone:required">O número de telefone é obrigatório.</div>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <textarea class="form-control" id="message" type="text" placeholder="Enter your message here..." style="height: 10rem" data-sb-validations="required"></textarea>
+                        <label for="message">Mensagem</label>
+                        <div class="invalid-feedback" data-sb-feedback="message:required">Uma mensagem é obrigatória.</div>
+                    </div>
+                    <div class="d-none" id="submitSuccessMessage">
+                        <div class="text-center mb-3">
+                            <div class="fw-bolder">Formulário enviado com sucesso!</div>
+                            Para configurar a funcionalidade de envio de email, consulte as instruções do link abaixo.
                             <br />
-                            2680-353 Unhos
-                        </p>
+                            <a href="https://startbootstrap.com/solution/contact-forms">https://startbootstrap.com/solution/contact-forms</a>
+                        </div>
                     </div>
+                    <div class="d-none" id="submitErrorMessage">
+                        <div class="text-center text-danger mb-3">Error sending message!</div>
+                    </div>
+                    <button class="btn btn-primary btn-xl disabled" id="submitButton" type="submit">Enviar</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Footer-->
+<footer class="footer text-center">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 mb-5 mb-lg-0 text-center">
+                <h4 class="text-uppercase mb-4" onclick="mostrarMapa()" style="cursor:pointer;">Localização </h4>
+                <div id="mapa" style="display:none;">
+                    <img src="../assets/img/mapaLoc.jpg" alt="Mapa localização" class="img-fluid">
+                </div>
+                <p class="lead mb-0">
+                    R. José Gomes Ferreira 1-92
+                    <br />
+                    2680-353 Unhos
+                </p>
+            </div>
 
-                    <script>
-                    function mostrarMapa() {
-                        var mapa = document.getElementById("mapa");
-                        if (mapa.style.display === "none") {
-                            mapa.style.display = "block";
-                        } else {
-                            mapa.style.display = "none";
-                        }
+            <script>
+                function mostrarMapa() {
+                    var mapa = document.getElementById("mapa");
+                    if (mapa.style.display === "none") {
+                        mapa.style.display = "block";
+                    } else {
+                        mapa.style.display = "none";
                     }
-                    </script>
+                }
+            </script>
 
-                    <div class="col-lg-4 mb-5 mb-lg-0">
-                        <h4 class="text-uppercase mb-3">A Nossa Missão</h4>
-                        <p style="font-size: 14px; line-height: 1.6;">
-                            Proporcionar um ambiente seguro, feliz e familiar onde os cães possam brincar,
-                            socializar e receber cuidados com carinho e dedicação.
-                        </p>
-                    </div>
+            <div class="col-lg-4 mb-5 mb-lg-0">
+                <h4 class="text-uppercase mb-3">A Nossa Missão</h4>
+                <p style="font-size: 14px; line-height: 1.6;">
+                    Proporcionar um ambiente seguro, feliz e familiar onde os cães possam brincar,
+                    socializar e receber cuidados com carinho e dedicação.
+                </p>
+            </div>
 
-                    <div class="col-lg-4 mb-5 mb-lg-0">
-                        <h4 class="text-uppercase mb-3">Porque Escolher-nos</h4>
-                        <p style="font-size: 14px; line-height: 1.6;">
-                            Priorizamos a segurança, não usamos trelas enforcadoras, melhorando a psicologia do patudo,
-                            garantindo tranquilidade aos tutores e bem-estar aos cães.
-                        </p>
-                    </div>
-                </div>
+            <div class="col-lg-4 mb-5 mb-lg-0">
+                <h4 class="text-uppercase mb-3">Porque Escolher-nos</h4>
+                <p style="font-size: 14px; line-height: 1.6;">
+                    Priorizamos a segurança, não usamos trelas enforcadoras, melhorando a psicologia do patudo,
+                    garantindo tranquilidade aos tutores e bem-estar aos cães.
+                </p>
             </div>
-        </footer>
-        <div class="copyright py-4 text-center text-white">
-            <div class="container"><small>A mais confiável &copy; Cão trilha</small></div>
         </div>
-        <!-- Portfolio Modals -->
-        <!-- Portfolio Modal 1-->
-        <div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" aria-labelledby="portfolioModal1" aria-hidden="true">
-            <div class="modal-dialog modal-xl">
-                <div class="modal-content">
-                    <div class="modal-header border-0"><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button></div>
-                    <div class="modal-body text-center pb-5">
-                        <div class="container">
-                            <div class="row justify-content-center">
-                                <div class="col-lg-8">
-                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Creches diárias</h2>
-                                    <div class="divider-custom">
-                                        <div class="divider-custom-line"></div>
-                                        <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-                                        <div class="divider-custom-line"></div>
-                                    </div>
-                                    <img class="img-fluid rounded mb-5" src="../assets/img/portfolio1.jpg" alt="Logo" style="height: 500px; width:auto; margin-right:10px;" />
-                                    <p class="mb-4">Ambiente seguro e supervisionado onde os cães podem brincar, gastar energia e socializar ao longo do dia, sempre com atenção personalizada e muito carinho.</p>
-                                    <button class="btn btn-primary" data-bs-dismiss="modal">
-                                        <i class="fas fa-xmark fa-fw"></i>
-                                        Close Window
-                                    </button>
-                                </div>
+    </div>
+</footer>
+<div class="copyright py-4 text-center text-white">
+    <div class="container"><small>A mais confiável &copy; Cão trilha</small></div>
+</div>
+<!-- Portfolio Modals -->
+<!-- Portfolio Modal 1-->
+<div class="portfolio-modal modal fade" id="portfolioModal1" tabindex="-1" aria-labelledby="portfolioModal1" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header border-0"><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button></div>
+            <div class="modal-body text-center pb-5">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-8">
+                            <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Creches diárias</h2>
+                            <div class="divider-custom">
+                                <div class="divider-custom-line"></div>
+                                <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                                <div class="divider-custom-line"></div>
                             </div>
+                            <img class="img-fluid rounded mb-5" src="../assets/img/portfolio1.jpg" alt="Logo" style="height: 500px; width:auto; margin-right:10px;" />
+                            <p class="mb-4">Ambiente seguro e supervisionado onde os cães podem brincar, gastar energia e socializar ao longo do dia, sempre com atenção personalizada e muito carinho.</p>
+                            <button class="btn btn-primary" data-bs-dismiss="modal">
+                                <i class="fas fa-xmark fa-fw"></i>
+                                Fechar Janela
+                            </button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- Portfolio Modal 2-->
-        <div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" aria-labelledby="portfolioModal2" aria-hidden="true">
-            <div class="modal-dialog modal-xl">
-                <div class="modal-content">
-                    <div class="modal-header border-0"><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button></div>
-                    <div class="modal-body text-center pb-5">
-                        <div class="container">
-                            <div class="row justify-content-center">
-                                <div class="col-lg-8">
-                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Higiene</h2>
-                                    <div class="divider-custom">
-                                        <div class="divider-custom-line"></div>
-                                        <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-                                        <div class="divider-custom-line"></div>
-                                    </div>
-                                    <img class="img-fluid rounded mb-5" src="../assets/img/portfolio2.jpg" alt="Logo" style="height: 500px; width:auto; margin-right:10px;" />
-                                    <p class="mb-4">Cuidados de higiene essenciais para o bem-estar dos cães, incluindo escovagem, limpeza e manutenção básica, sempre com produtos adequados.</p>
-                                    <button class="btn btn-primary" data-bs-dismiss="modal">
-                                        <i class="fas fa-xmark fa-fw"></i>
-                                        Close Window
-                                    </button>
-                                </div>
+    </div>
+</div>
+<!-- Portfolio Modal 2-->
+<div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" aria-labelledby="portfolioModal2" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header border-0"><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button></div>
+            <div class="modal-body text-center pb-5">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-8">
+                            <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Higiene</h2>
+                            <div class="divider-custom">
+                                <div class="divider-custom-line"></div>
+                                <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                                <div class="divider-custom-line"></div>
                             </div>
+                            <img class="img-fluid rounded mb-5" src="../assets/img/portfolio2.jpg" alt="Logo" style="height: 500px; width:auto; margin-right:10px;" />
+                            <p class="mb-4">Cuidados de higiene essenciais para o bem-estar dos cães, incluindo escovagem, limpeza e manutenção básica, sempre com produtos adequados.</p>
+                            <button class="btn btn-primary" data-bs-dismiss="modal">
+                                <i class="fas fa-xmark fa-fw"></i>
+                                Fechar Janela
+                            </button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- Portfolio Modal 3-->
-        <div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" aria-labelledby="portfolioModal3" aria-hidden="true">
-            <div class="modal-dialog modal-xl">
-                <div class="modal-content">
-                    <div class="modal-header border-0"><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button></div>
-                    <div class="modal-body text-center pb-5">
-                        <div class="container">
-                            <div class="row justify-content-center">
-                                <div class="col-lg-8">
-                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Socialização</h2>
-                                    <div class="divider-custom">
-                                        <div class="divider-custom-line"></div>
-                                        <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-                                        <div class="divider-custom-line"></div>
-                                    </div>
-                                    <img class="img-fluid rounded mb-5 bg-danger" src="../assets/img/portfolio3.jpg" alt="Logo" style="height: 500px; width:auto; margin-right:10px;" />
-                                    <p class="mb-4 ">Atividades supervisionadas que incentivam comportamentos equilibrados, interação positiva entre cães e desenvolvimento de confiança em ambiente controlado.</p>
-                                    <button class="btn btn-primary" data-bs-dismiss="modal">
-                                        <i class="fas fa-xmark fa-fw"></i>
-                                        Close Window
-                                    </button>
-                                </div>
+    </div>
+</div>
+<!-- Portfolio Modal 3-->
+<div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" aria-labelledby="portfolioModal3" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header border-0"><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button></div>
+            <div class="modal-body text-center pb-5">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-8">
+                            <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Socialização</h2>
+                            <div class="divider-custom">
+                                <div class="divider-custom-line"></div>
+                                <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                                <div class="divider-custom-line"></div>
                             </div>
+                            <img class="img-fluid rounded mb-5 bg-danger" src="../assets/img/portfolio3.jpg" alt="Logo" style="height: 500px; width:auto; margin-right:10px;" />
+                            <p class="mb-4 ">Atividades supervisionadas que incentivam comportamentos equilibrados, interação positiva entre cães e desenvolvimento de confiança em ambiente controlado.</p>
+                            <button class="btn btn-primary" data-bs-dismiss="modal">
+                                <i class="fas fa-xmark fa-fw"></i>
+                                Fechar Janela
+                            </button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- Portfolio Modal 4-->
-        <div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" aria-labelledby="portfolioModal4" aria-hidden="true">
-            <div class="modal-dialog modal-xl">
-                <div class="modal-content">
-                    <div class="modal-header border-0"><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button></div>
-                    <div class="modal-body text-center pb-5">
-                        <div class="container">
-                            <div class="row justify-content-center">
-                                <div class="col-lg-8">
-                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Passeios</h2>
-                                    <div class="divider-custom">
-                                        <div class="divider-custom-line"></div>
-                                        <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-                                        <div class="divider-custom-line"></div>
-                                    </div>
-                                    <img class="img-fluid rounded mb-5" src="../assets/img/portfolio4.jpg" alt="Logo" style="height: 500px; width:auto; margin-right:10px;" />
-                                    <p class="mb-4">Passeios adaptados às necessidades de cada cão, promovendo exercício físico, bem-estar e estímulos mentais, sempre com segurança e responsabilidade.</p>
-                                    <button class="btn btn-primary" data-bs-dismiss="modal">
-                                        <i class="fas fa-xmark fa-fw"></i>
-                                        Close Window
-                                    </button>
-                                </div>
+    </div>
+</div>
+<!-- Portfolio Modal 4-->
+<div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" aria-labelledby="portfolioModal4" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header border-0"><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button></div>
+            <div class="modal-body text-center pb-5">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-8">
+                            <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Passeios</h2>
+                            <div class="divider-custom">
+                                <div class="divider-custom-line"></div>
+                                <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                                <div class="divider-custom-line"></div>
                             </div>
+                            <img class="img-fluid rounded mb-5" src="../assets/img/portfolio4.jpg" alt="Logo" style="height: 500px; width:auto; margin-right:10px;" />
+                            <p class="mb-4">Passeios adaptados às necessidades de cada cão, promovendo exercício físico, bem-estar e estímulos mentais, sempre com segurança e responsabilidade.</p>
+                            <button class="btn btn-primary" data-bs-dismiss="modal">
+                                <i class="fas fa-xmark fa-fw"></i>
+                                Fechar Janela
+                            </button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- Portfolio Modal 5-->
-        <div class="portfolio-modal modal fade" id="portfolioModal5" tabindex="-1" aria-labelledby="portfolioModal5" aria-hidden="true">
-            <div class="modal-dialog modal-xl">
-                <div class="modal-content">
-                    <div class="modal-header border-0"><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button></div>
-                    <div class="modal-body text-center pb-5">
-                        <div class="container">
-                            <div class="row justify-content-center">
-                                <div class="col-lg-8">
-                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Estadias</h2>
-                                    <div class="divider-custom">
-                                        <div class="divider-custom-line"></div>
-                                        <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-                                        <div class="divider-custom-line"></div>
-                                    </div>
-                                    <img class="img-fluid rounded mb-5" src="../assets/img/portfolio5.jpg" alt="Logo" style="height: 500px; width:auto; margin-right:10px;" />
-                                    <p class="mb-4">Serviço de estadia confortável e familiar para quando os tutores precisam de se ausentar, garantindo tranquilidade, rotina e cuidados dedicados.</p>
-                                    <button class="btn btn-primary" data-bs-dismiss="modal">
-                                        <i class="fas fa-xmark fa-fw"></i>
-                                        Close Window
-                                    </button>
-                                </div>
+    </div>
+</div>
+<!-- Portfolio Modal 5-->
+<div class="portfolio-modal modal fade" id="portfolioModal5" tabindex="-1" aria-labelledby="portfolioModal5" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header border-0"><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button></div>
+            <div class="modal-body text-center pb-5">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-8">
+                            <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Estadias</h2>
+                            <div class="divider-custom">
+                                <div class="divider-custom-line"></div>
+                                <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                                <div class="divider-custom-line"></div>
                             </div>
+                            <img class="img-fluid rounded mb-5" src="../assets/img/portfolio5.jpg" alt="Logo" style="height: 500px; width:auto; margin-right:10px;" />
+                            <p class="mb-4">Serviço de estadia confortável e familiar para quando os tutores precisam de se ausentar, garantindo tranquilidade, rotina e cuidados dedicados.</p>
+                            <button class="btn btn-primary" data-bs-dismiss="modal">
+                                <i class="fas fa-xmark fa-fw"></i>
+                                Fechar Janela
+                            </button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- Portfolio Modal 6-->
-        <div class="portfolio-modal modal fade" id="portfolioModal6" tabindex="-1" aria-labelledby="portfolioModal6" aria-hidden="true">
-            <div class="modal-dialog modal-xl">
-                <div class="modal-content">
-                    <div class="modal-header border-0"><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button></div>
-                    <div class="modal-body text-center pb-5">
-                        <div class="container">
-                            <div class="row justify-content-center">
-                                <div class="col-lg-8">
-                                    <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Trilhas</h2>
-                                    <div class="divider-custom">
-                                        <div class="divider-custom-line"></div>
-                                        <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
-                                        <div class="divider-custom-line"></div>
-                                    </div>
-                                    <img class="img-fluid rounded mb-5" src="../assets/img/portfolio6.jpg" alt="Logo" style="height: 500px; width:auto; margin-right:10px;" />
-                                    <p class="mb-4">Atividades ao ar livre em trilhos naturais que proporcionam exercício físico, estímulos mentais e contacto com a natureza, sempre com supervisão e segurança adequadas às capacidades de cada cão.</p>
-                                    <button class="btn btn-primary" data-bs-dismiss="modal">
-                                        <i class="fas fa-xmark fa-fw"></i>
-                                        Close Window
-                                    </button>
-                                </div>
+    </div>
+</div>
+<!-- Portfolio Modal 6-->
+<div class="portfolio-modal modal fade" id="portfolioModal6" tabindex="-1" aria-labelledby="portfolioModal6" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header border-0"><button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button></div>
+            <div class="modal-body text-center pb-5">
+                <div class="container">
+                    <div class="row justify-content-center">
+                        <div class="col-lg-8">
+                            <h2 class="portfolio-modal-title text-secondary text-uppercase mb-0">Trilhas</h2>
+                            <div class="divider-custom">
+                                <div class="divider-custom-line"></div>
+                                <div class="divider-custom-icon"><i class="fas fa-star"></i></div>
+                                <div class="divider-custom-line"></div>
                             </div>
+                            <img class="img-fluid rounded mb-5" src="../assets/img/portfolio6.jpg" alt="Logo" style="height: 500px; width:auto; margin-right:10px;" />
+                            <p class="mb-4">Atividades ao ar livre em trilhos naturais que proporcionam exercício físico, estímulos mentais e contacto com a natureza, sempre com supervisão e segurança adequadas às capacidades de cada cão.</p>
+                            <button class="btn btn-primary" data-bs-dismiss="modal">
+                                <i class="fas fa-xmark fa-fw"></i>
+                                Fechar Janela
+                            </button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- Bootstrap core JS-->
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-        <!-- Core theme JS-->
-        <script src="./assets/js/scripts.js"></script>
-        <script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
-    </body>
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
+<script>
+    const toast = <?= json_encode($_SESSION["toast"] ?? null) ?>;
+
+    <?php unset($_SESSION['toast']); ?>
+
+    if (toast) {
+
+        toastr[toast.type](toast.message);
+
+    }
+</script>
+<script src="./assets/js/scripts.js"></script>
+<script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
+</body>
+
 </html>

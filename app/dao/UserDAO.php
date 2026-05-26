@@ -44,6 +44,36 @@ class UserDAO
         return null;
     }
 
+    public function findById(string $id): ?Cao
+    {
+        $sql = "SELECT * FROM caes WHERE id = :id LIMIT 1";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bindParam(':id', $id);
+        $stmt->execute();
+
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        if ($row) {
+            return new Cao(
+                $row['id'],
+                $row['id_user'],
+                $row['id_trilha'],
+                $row['id_estadia'],
+                $row['nome'],
+                $row['raca'],
+                $row['idade'],
+                $row['peso'],
+                $row['sexo'],
+                $row['dono_nome'],
+                $row['esterilizado'],
+                $row['trilha_nome'],
+                $row['estadia_id']
+                );
+        }
+
+        return null;
+    }
+
     public function getUsers(): array
     {
         $sql = "SELECT * FROM users";

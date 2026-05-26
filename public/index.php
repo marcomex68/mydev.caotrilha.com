@@ -56,7 +56,26 @@ if($uri === '/' || $uri === '/index' || $uri === '/home') {
     (new WebController())->clientes();
   }
 
-} elseif ($uri === '/caes' && $method === "GET") {
+}
+
+  elseif (preg_match('#^/users/(\d+)$#', $uri, $m) && $method === "GET") {
+
+  if (!$isLogin) {
+  $_SESSION['toast'] = [
+ 'type' => 'error',
+'message' => 'Acesso negado. Faça login para continuar.'
+ ];
+  header("Location: /login");
+  exit();
+}else{
+ $clienteId = $m[1];
+ (new WebController())->clienteById($clienteId);
+  }
+
+  }
+
+
+elseif ($uri === '/caes' && $method === "GET") {
 
   if (!$isLogin) {
     $_SESSION['toast'] = [

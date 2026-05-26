@@ -43,6 +43,7 @@ class WebController
     ]);
   }
 
+
   public function caes()
   {
     $caes = (new UserDAO())->getCaes();
@@ -66,4 +67,18 @@ class WebController
       'estadias' => $estadias
     ]);
   }
+
+        public function clienteById($clienteId)
+        {
+          $cliente = (new UserDAO())->findById($clienteId);
+
+          // caes do cliente
+          // CaesDAo passar o clienteId select * from caes where id_user = $clienteId
+          //$caes = (new UserDAO())->getCaesByUserId($clienteId
+          $caes = [];
+          $this->view('cliente', [
+            'cliente' => $cliente,
+            'caes' => $caes
+          ]);
+        }
 }

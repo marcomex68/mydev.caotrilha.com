@@ -1,14 +1,11 @@
 <?php include __DIR__ . "/../includes/header_admin.php"; ?>
-
+<?php /** @var Estadia[] $estadias  */ ?>
 <!-- CONTEÚDO -->
 <div class="container py-4">
 
   <!-- HEADER -->
   <div class="d-flex justify-content-between align-items-center mb-3">
     <h2 class="mb-0">🏡 Estadias</h2>
-    <button class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#modalEstadia">
-      + Nova Estadia
-    </button>
   </div>
 
   <!-- TABELA -->
@@ -46,36 +43,6 @@
     </div>
   </div>
 
-</div>
-
-<!-- MODAL -->
-<div class="modal fade" id="modalEstadia" tabindex="-1">
-  <div class="modal-dialog">
-    <div class="modal-content">
-
-      <div class="modal-header">
-        <h5 class="modal-title">Nova Estadia</h5>
-        <button class="btn-close" data-bs-dismiss="modal"></button>
-      </div>
-
-      <div class="modal-body d-flex flex-column gap-2">
-        <input class="form-control" placeholder="ID do Cão">
-        <input type="date" class="form-control">
-        <input type="date" class="form-control">
-        <input class="form-control" placeholder="Preço (€)">
-        <select class="form-select">
-          <option>Pago</option>
-          <option>Pendente</option>
-        </select>
-      </div>
-
-      <div class="modal-footer">
-        <button class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-        <button class="btn btn-dark" data-bs-dismiss="modal">Guardar</button>
-      </div>
-
-    </div>
-  </div>
 </div>
 
 <!-- BOOTSTRAP -->

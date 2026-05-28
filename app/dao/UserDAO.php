@@ -216,4 +216,61 @@ class UserDAO
 
         return (int) $stmt->fetchColumn();
     }
+
+   public function delete(int $id): void
+{
+    // apagar cães do utilizador
+    $sqlCaes = "DELETE FROM caes WHERE id_user = :id";
+
+    $stmtCaes = $this->conn->prepare($sqlCaes);
+
+    $stmtCaes->bindParam(':id', $id, PDO::PARAM_INT);
+
+    $stmtCaes->execute();
+
+
+    // apagar utilizador
+    $sqlUser = "DELETE FROM users WHERE id = :id";
+
+    $stmtUser = $this->conn->prepare($sqlUser);
+
+    $stmtUser->bindParam(':id', $id, PDO::PARAM_INT);
+
+    $stmtUser->execute();
+}
+
+    public function findByTrilhaNome(string $nome): ?Trilha
+    {
+        $sql = "SELECT * FROM trilhas WHERE nome = :nome LIMIT 1";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bindParam(':nome', $nome);
+        $stmt->execute();
+
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        if ($row) {
+            return new Trilha(
+                $row['id'],
+                $row['nome'],
+                $row['data'],
+                $row['kms'],
+                $row['localidade']
+            );
+        }
+
+        return null;
+    }
+
+     public function createTrilha(string $nome, string $data, float $kms, string $localidade): void
+    {
+        $sql = "INSERT INTO trilhas (nome, data, kms, localidade) VALUES (:nome, :data, :kms, :localidade)";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bindParam(':nome', $nome);
+        $stmt->bindParam(':data', $data);
+        $stmt->bindParam(':kms', $kms);
+        $stmt->bindParam(':localidade', $localidade);
+        $stmt->execute();
+}
+
+
 }

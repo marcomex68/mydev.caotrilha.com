@@ -1,5 +1,6 @@
 <?php include __DIR__ . "/../includes/header_admin.php"; ?>
 <?php /** @var Estadia[] $estadias  */ ?>
+
 <!-- CONTEÚDO -->
 <div class="container py-4">
 
@@ -12,6 +13,7 @@
   <div class="card shadow-sm">
     <div class="table-responsive">
       <table class="table table-hover mb-0">
+
         <thead class="table-dark">
           <tr>
             <th>ID Cão</th>
@@ -19,9 +21,9 @@
             <th>Saída</th>
             <th>Preço</th>
             <th>Estado</th>
-            <th></th>
           </tr>
         </thead>
+
         <tbody>
           <?php foreach ($estadias as $estadia): ?>
             <tr>
@@ -29,12 +31,13 @@
               <td><?= $estadia->getDataEntrada() ?></td>
               <td><?= $estadia->getDataSaida() ?></td>
               <td><?= $estadia->getPrecoTotal() ?></td>
-              <td><?php if ($estadia->getPago() ===  true): ?>
-                                <span class="badge bg-success">Pago</span>
-                            <?php else: ?>
-                                <span class="badge bg-danger">Pendente</span>
-                            <?php endif; ?></td>
-              <td><button class="btn btn-sm btn-outline-danger">🗑</button></td>
+              <td>
+                <?php if ($estadia->getPago() === true): ?>
+                  <span class="badge bg-success">Pago</span>
+                <?php else: ?>
+                  <span class="badge bg-danger">Pendente</span>
+                <?php endif; ?>
+              </td>
             </tr>
           <?php endforeach; ?>
         </tbody>

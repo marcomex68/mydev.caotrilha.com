@@ -81,4 +81,21 @@ class WebController
             'caes' => $caes
           ]);
         }
+
+        public function deleteCliente($clienteId)
+{
+    (new UserDAO())->delete($clienteId);
+
+    header('Location: /clientes');
+    exit;
+}
+
+public function createTrilha()
+{
+    $this->view('createTrilha');
+
+}
+
+
+
 }

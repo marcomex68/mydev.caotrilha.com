@@ -114,12 +114,37 @@ elseif ($uri === '/caes' && $method === "GET") {
     (new WebController())->estadias();
   }
 
-} elseif ($uri === '/logout' && $method === "POST") {
+  } elseif ($uri === '/createTrilha' && $method === "GET") {
+  
+  (new WebController())->createTrilha();
+
+} elseif ($uri === '/createTrilha' && $method === "POST") {
+  
+  (new AuthController())->createTrilhaWeb();
+}
+elseif ($uri === '/logout' && $method === "POST") {
   
   (new AuthController())->logoutWeb();
 
 
-}else {
+}elseif ($uri === '/clientes/delete' && $method === "POST") {
+
+    if (!$isLogin) {
+        $_SESSION['toast'] = [
+            'type' => 'error',
+            'message' => 'Acesso negado. Faça login para continuar.'
+        ];
+
+        header("Location: /login");
+        exit();
+    }
+
+    $clienteId = $_POST['id'];
+
+    (new WebController())->deleteCliente($clienteId);
+}
+
+else {
   
   echo "404";
 

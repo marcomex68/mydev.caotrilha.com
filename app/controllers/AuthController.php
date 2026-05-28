@@ -1,6 +1,7 @@
 <?php
 
 require_once __DIR__ . "/../dao/UserDAO.php";
+require_once __DIR__ . "/../utils/Utils.php";
 
 class AuthController
 {
@@ -73,4 +74,47 @@ class AuthController
     header("Location: /home");
     exit;
 }
+
+public function createTrilhaWeb()
+{
+    try {
+        $nome = trim($_POST["nome"] ?? '');
+        $data = trim($_POST["data"] ?? '');
+        $kms = trim($_POST['kms'] ?? '');
+        $localidade = trim($_POST['localidade'] ?? '');
+
+        if ($nome === '' || $data === '' || $kms === '' || $localidade === '') {
+            throw new Exception("Todos os campos são obrigatórios.");
+        }
+
+        $userDAO = new UserDAO();
+
+        if ($userDAO->findByTrilhaNome($nome)) {
+            throw new Exception("Já existe uma trilha com esse nome.");
+        }
+
+        // 🔥 ISTO ESTAVA A FALTAR
+        $userDAO->createTrilha($nome, $data, (float)$kms, $localidade);
+
+        $_SESSION['toast'] = [
+            'type' => 'success',
+            'message' => 'Trilha criada com sucesso!'
+        ];
+
+        header("Location: /trilhas");
+        exit;
+
+    } catch (Exception $e) {
+
+        $_SESSION['toast'] = [
+            'type' => 'error',
+            'message' => 'Erro: ' . $e->getMessage()
+        ];
+
+        header("Location: /trilhas");
+        exit;
+    }
+}
+ 
+
 } 

@@ -5,7 +5,7 @@ require_once __DIR__ . '/../vendor/autoload.php';
 require_once __DIR__ . '/../app/controllers/WebController.php';
 require_once __DIR__ . '/../app/controllers/AuthController.php';
 require_once __DIR__ . '/../app/middleware/AuthMiddlewareWeb.php';
-require_once __DIR__ . '/../app/services/Mailer.php';
+require_once __DIR__ . '/../app/services/MyMailerService.php';
 
 
 
@@ -143,6 +143,20 @@ elseif ($uri === '/logout' && $method === "POST") {
 
     (new WebController())->deleteCliente($clienteId);
 }
+elseif ($uri === '/verify-email' && $method === 'GET') {
+    (new AuthController())->verifyEmailForm();
+}
+ 
+elseif ($uri === '/verify-email' && $method === 'POST') {
+    try {
+        (new AuthController())->verifyEmailSubmit();
+    } catch (Exception $e) {
+        $_SESSION['flash_error'] = $e->getMessage();
+        header("Location: /verify-email?token=" . urlencode($_POST['token'] ?? ''));
+        exit;
+    }
+}
+ 
 
 else {
   

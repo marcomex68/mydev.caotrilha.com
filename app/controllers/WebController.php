@@ -96,6 +96,10 @@ public function createTrilha()
 
 }
 
+public function verifyEmail(string $token): void
+    {
+        $this->view("verify-email", ["token" => $token]);
+    }
 
 
 }

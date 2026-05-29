@@ -272,5 +272,57 @@ class UserDAO
         $stmt->execute();
 }
 
+public function createPending(string $nome, string $telefone, string $email,string $morada, string $password): int
+    {
+        $sql = "
+        INSERT INTO users (is_admin, nome, telefone, email, morada, password, is_verified, verified_at, created_at, deleted_at)
+        VALUES (0, ?, ?, ?, ?, ?, 0, NULL, NOW(), NULL)
+    ";
 
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute([$nome, $telefone, $email, $morada, $password]);
+ 
+        return (int) $this->conn->lastInsertId();
+    }
+ 
+    public function setPasswordAndVerify(int $userId, string $hashedPassword): void
+    {
+        $sql = "UPDATE users
+            SET password = ?, is_verified = 1, verified_at = NOW()
+            WHERE id = ?";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->execute([$hashedPassword, $userId]);
+    }
+ 
+    public function findByEmailApp(string $email): ?User
+    {
+        $sql = "SELECT * FROM users WHERE email = :email AND is_admin = 0 LIMIT 1";
+
+        $stmt = $this->conn->prepare($sql);
+
+        $stmt->bindParam(':email', $email);
+
+        $stmt->execute();
+
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        if ($row) {
+            return new User(
+                $row['id'],
+                $row['is_admin'],
+                $row['nome'],
+                $row['telefone'],
+                $row['email'],
+                $row['morada'],
+                $row['password'],
+                $row['is_verified'] ?? false,
+                $row['verified_at']??'',
+                $row['created_at'],
+                $row['deleted_at']??'',
+            );
+        }
+ 
+return null;
+
+}
 }

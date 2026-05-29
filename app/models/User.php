@@ -18,6 +18,15 @@ class User
 
   private string $password;
 
+  private bool $is_verified;
+
+  private string $verified_at;
+
+  private string $created_at;
+
+  private string $deleted_at;
+ 
+
   public function __construct(
 
     int $id = 0,
@@ -26,13 +35,23 @@ class User
 
     string $nome = '',
 
-    string $telefone = '',
+    int $telefone = 0,
 
     string $email = '',
 
     string $morada = '',
 
-    string $password = ''
+    string $password = '',
+
+    bool $is_verified = false,
+
+    string $verified_at = '',
+
+    string $created_at = '',
+
+    string $deleted_at = ''
+
+
 
   ) {
 
@@ -49,6 +68,14 @@ class User
     $this->morada = $morada;
 
     $this->password = $password;
+
+    $this->is_verified = $is_verified;
+
+    $this->verified_at = $verified_at;
+
+    $this->created_at = $created_at;
+
+    $this->deleted_at = $deleted_at;
   }
 
   public function getId(): int
@@ -93,14 +120,14 @@ class User
     $this->nome = $nome;
   }
 
-  public function getTelefone(): string
+  public function getTelefone(): int
 
   {
 
     return $this->telefone;
   }
 
-  public function setTelefone(string $telefone): void
+  public function setTelefone(int $telefone): void
 
   {
 
@@ -147,5 +174,61 @@ class User
   {
 
     $this->password = $password;
+  }
+
+  public function getIsVerified(): bool
+
+  {
+
+    return $this->is_verified;
+  }
+
+  public function setIsVerified(bool $is_verified): void
+
+  {
+
+    $this->is_verified = $is_verified;
+  }
+
+  public function getVerifiedAt(): string
+
+  {
+
+    return $this->verified_at;
+  }
+
+  public function setVerifiedAt(string $verified_at): void
+
+  {
+
+    $this->verified_at = $verified_at;
+  }
+
+  public function getCreatedAt(): string
+
+  {
+
+    return $this->created_at;
+  }
+
+  public function setCreatedAt(string $created_at): void
+
+  {
+
+    $this->created_at = $created_at;
+  }
+
+  public function getDeletedAt(): string
+
+  {
+
+    return $this->deleted_at;
+  }
+
+  public function setDeletedAt(string $deleted_at): void
+
+  {
+
+    $this->deleted_at = $deleted_at;
   }
 }

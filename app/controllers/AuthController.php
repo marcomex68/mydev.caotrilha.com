@@ -1,7 +1,12 @@
 <?php
 
-require_once __DIR__ . "/../dao/UserDAO.php";
+require_once __DIR__ . '/../dao/UserDAO.php';
+require_once __DIR__ . "/../config/DatabaseSingle.php";
 require_once __DIR__ . "/../utils/Utils.php";
+require_once __DIR__ . '/../dao/EmailVerificationDAO.php';
+require_once __DIR__ . "/../services/MyMailerService.php";
+require_once __DIR__ . "/../config/jwt.php";
+ 
 
 class AuthController
 {
@@ -115,6 +120,187 @@ public function createTrilhaWeb()
         exit;
     }
 }
- 
 
+public function signupApi()
+    {
+        $pdo = DatabaseSingle::connect();
+ 
+        $pdo->beginTransaction();
+ 
+        try {
+            $nome = trim($_POST["nome"] ?? '');
+            $telefone = trim($_POST["telefone"] ?? '');
+            $email = trim($_POST['email'] ?? '');
+            $morada = trim($_POST['morada'] ?? '');
+            $password = trim($_POST['password'] ?? '');
+ 
+            if ($nome === '' || $telefone === '' || $email === '' || $morada === '' || $password === '') {
+                throw new Exception("Todos os campos são obrigatórios.");
+            }
+ 
+            if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+                throw new Exception("Email inválido.");
+            }
+ 
+            $userDAO = new UserDAO();
+ 
+            if ($userDAO->findByEmailAPP($email)) {
+                throw new Exception("Já existe uma conta com esse email.");
+            }
+ 
+ 
+            $userId = $userDAO->createPending($nome, $telefone, $email, $morada, $password);
+ 
+            $verifyDAO = new EmailVerificationDAO();
+            $token = $verifyDAO->createForUser($userId, 600);
+ 
+            $scheme = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off') ? 'https' : 'http';
+            $host = $_SERVER['HTTP_HOST'] ?? 'localhost';
+            $baseUrl = $scheme . '://' . $host;
+ 
+            $link = $baseUrl . "/verify-email?token=" . urlencode($token);
+ 
+            $subject = "Verifica o teu email (expira em 5 min)";
+            $html = "
+                <div style='font-family: Arial, sans-serif;'>
+                    <h2>Olá, " . htmlspecialchars($nome) . "!</h2>
+                    <p>Para ativares a tua conta e definires a tua password, clica no link abaixo (válido por <b>5 minutos</b>):</p>
+                    <p><a href='{$link}'>{$link}</a></p>
+                    <p>Se o link expirar, faz signup novamente (ou pede reenvio do link).</p>
+                </div>
+                ";
+ 
+            (new MyMailerService())->send($email, $subject, $html);
+ 
+            $responseData = [
+                'success' => true,
+                'message' => 'Signup realizado com sucesso',
+                'data' => [],
+            ];
+ 
+            $pdo->commit();
+ 
+            Utils::jsonResponse($responseData, 200);
+        } catch (Exception $e) {
+            $pdo->rollBack();
+ 
+            $responseData = [
+                'success' => false,
+                'message' => 'Erro no signup: ' . $e->getMessage(),
+                'data' => [],
+            ];
+ 
+            Utils::jsonResponse($responseData, 400);
+        }
+    }
+ 
+    //Este é o metodo verifica o email do user.
+    public function verifyEmailForm(): void
+    {
+        $token = $_GET['token'] ?? '';
+        if ($token === '') {
+            http_response_code(400);
+            echo "Token em falta.";
+            return;
+        }
+ 
+        (new WebController())->verifyEmail($token);
+    }
+ 
+    //Este é o metodo que processa a submissão do form de verificação do email, onde o user define a password.
+    public function verifyEmailSubmit(): void
+    {
+        if (session_status() !== PHP_SESSION_ACTIVE)
+            session_start();
+ 
+        $token = (string) ($_POST['token'] ?? '');
+        $password = (string) ($_POST['password'] ?? '');
+ 
+        if ($token === '' || $password === '')
+            throw new Exception("Token e password são obrigatórios.");
+        if (strlen($password) < 6)
+            throw new Exception("Password deve ter pelo menos 6 caracteres.");
+ 
+        $verDao = new EmailVerificationDAO();
+        $userId = $verDao->validate($token);
+ 
+        if (!$userId) {
+            throw new Exception("Link inválido ou expirado (5 min). Pede um novo.");
+        }
+ 
+        $hash = password_hash($password, PASSWORD_DEFAULT);
+ 
+        $userDao = new UserDAO();
+        $userDao->setPasswordAndVerify($userId, $hash);
+ 
+        $verDao->markUsed($token);
+ 
+        $_SESSION['flash_success'] = "Email verificado e password definida. Já podes fazer login.";
+        header("Location: /login");
+        exit;
+    }
+ 
+    //Este é o metodo que processa o login da nossa APP.
+    public function loginApi()
+    {
+        $pdo = DatabaseSingle::connect();
+ 
+        $pdo->beginTransaction();
+        try {
+            $email = trim($_POST['email'] ?? '');
+            $password = trim($_POST['password'] ?? '');
+ 
+            if ($email === '' || $password === '') {
+                throw new Exception("Todos os campos são obrigatórios.");
+            }
+ 
+            if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+                throw new Exception("Email inválido.");
+            }
+ 
+            $user = (new UserDAO())->findByEmailAPP($email);
+ 
+            if (!$user || !password_verify($password, $user->getPassword())) {
+                echo json_encode(["error" => "login inválido"]);
+                return;
+            }
+ 
+            $payload = [
+                "iat" => time(),
+                "exp" => time() + 3600,
+                "data" => [
+                    "id" => $user->getId(),
+                    "role" => $user->getIsAdmin()
+                ]
+            ];
+ 
+            $jwt = JWT::encode($payload, JwtConfig::$secret, 'HS256');
+ 
+            $responseData = [
+                'success' => true,
+                'message' => 'Login realizado com sucesso',
+                'data' => [
+                    'user' => $user->toArray(),
+                    'jwt' => $jwt
+                ],
+            ];
+ 
+            $pdo->commit();
+ 
+            Utils::jsonResponse($responseData, 200);
+ 
+        } catch (Exception $e) {
+            $pdo->rollBack();
+ 
+            $responseData = [
+                'success' => false,
+                'message' => 'Erro no login: ' . $e->getMessage(),
+                'data' => [],
+            ];
+ 
+            Utils::jsonResponse($responseData, 400);
+        }
+ 
+ 
+    }
 } 

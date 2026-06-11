@@ -1,128 +1,61 @@
 <?php
- 
+
 class Trilha
-
 {
+    private int $id;
+    private string $nome;
+    private float $kms;
+    private string $localidade;
 
-  private int $id;
+    public function __construct(
+        int $id = 0,
+        string $nome = '',
+        float $kms = 0.0,
+        string $localidade = ''
+    ) {
+        $this->id = $id;
+        $this->nome = $nome;
+        $this->kms = $kms;
+        $this->localidade = $localidade;
+    }
 
-  private string $nome;
+    public function getId(): int
+    {
+        return $this->id;
+    }
 
-  private string $data;
+    public function setId(int $id): void
+    {
+        $this->id = $id;
+    }
 
-  private float $kms;
+    public function getNome(): string
+    {
+        return $this->nome;
+    }
 
-  private string $localidade;
+    public function setNome(string $nome): void
+    {
+        $this->nome = $nome;
+    }
 
- 
-  public function __construct(
+    public function getKms(): float
+    {
+        return $this->kms;
+    }
 
-    int $id = 0,
+    public function setKms(float $kms): void
+    {
+        $this->kms = $kms;
+    }
 
-    string $nome = '',
+    public function getLocalidade(): string
+    {
+        return $this->localidade;
+    }
 
-    string $data = '',
-
-    float $kms = 0.0,
-
-    string $localidade = ''
-
-  ) {
-
-    $this->id = $id;
-
-    $this->nome = $nome;
-
-    $this->data = $data;
-
-    $this->kms = $kms;
-
-    $this->localidade = $localidade;
-
-  }
- 
-  public function getId(): int
-
-  {
-
-    return $this->id;
-
-  }
-
-  public function setId(int $id): void
-
-  {
-
-    $this->id = $id;
-
-  }
- 
- 
-  public function getNome(): string
-
-  {
-
-    return $this->nome;
-
-  }
-
-  public function setNome(string $nome): void
-
-  {
-
-    $this->nome = $nome;
-
-  }
- 
-  public function getData(): string
-
-  {
-
-    return $this->data;
-
-  }
-
-  public function setData(string $data): void
-
-  {
-
-    $this->data = $data;
-
-  }
- 
-  public function getKms(): float
-
-  {
-
-    return $this->kms;
-
-  }
-
-  public function setKms(float $kms): void
-
-  {
-
-    $this->kms = $kms;
-
-  }
- 
-  public function getLocalidade(): string
-
-  {
-
-    return $this->localidade;
-
-  }
-
-  public function setLocalidade(string $localidade): void
-
-  {
-
-    $this->localidade = $localidade;
-
-  }
- 
-
-
+    public function setLocalidade(string $localidade): void
+    {
+        $this->localidade = $localidade;
+    }
 }
- 

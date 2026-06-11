@@ -8,10 +8,6 @@ require_once __DIR__ . '/../app/middleware/AuthMiddlewareWeb.php';
 require_once __DIR__ . '/../app/services/MyMailerService.php';
 
 
-
-
-
-
 $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
 $uri = str_replace("mydev.caotrilha.com/public", "", $uri);
@@ -31,6 +27,7 @@ if($uri === '/' || $uri === '/index' || $uri === '/home') {
   (new AuthController())->loginWeb();
 
 } elseif ($uri === '/admin' && $method === "GET") {
+
   if (!$isLogin) {
     $_SESSION['toast'] = [
       'type' => 'error',

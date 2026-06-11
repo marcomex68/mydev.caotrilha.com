@@ -44,34 +44,19 @@ class UserDAO
         return null;
     }
 
-    public function findById(string $id): ?Cao
+    public function findById(string $id): ?array
     {
-        $sql = "SELECT * FROM caes WHERE id = :id LIMIT 1";
+        $sql = "SELECT * FROM users WHERE id = :id LIMIT 1";
         $stmt = $this->conn->prepare($sql);
         $stmt->bindParam(':id', $id);
         $stmt->execute();
 
         $row = $stmt->fetch(PDO::FETCH_ASSOC);
-
         if ($row) {
-            return new Cao(
-                $row['id'],
-                $row['id_user'],
-                $row['id_trilha'],
-                $row['id_estadia'],
-                $row['nome'],
-                $row['raca'],
-                $row['idade'],
-                $row['peso'],
-                $row['sexo'],
-                $row['dono_nome'],
-                $row['esterilizado'],
-                $row['trilha_nome'],
-                $row['estadia_id']
-                );
+            return $row;
         }
 
-        return null;
+        return NULL;
     }
 
     public function getUsers(): array
@@ -151,7 +136,6 @@ class UserDAO
             $trilhas[] = new Trilha(
                 $row['id'],
                 $row['nome'],
-                $row['data'],
                 $row['kms'],
                 $row['localidade']
             );
@@ -252,7 +236,6 @@ class UserDAO
             return new Trilha(
                 $row['id'],
                 $row['nome'],
-                $row['data'],
                 $row['kms'],
                 $row['localidade']
             );
@@ -263,21 +246,20 @@ class UserDAO
 
      public function createTrilha(string $nome, string $data, float $kms, string $localidade): void
     {
-        $sql = "INSERT INTO trilhas (nome, data, kms, localidade) VALUES (:nome, :data, :kms, :localidade)";
+        $sql = "INSERT INTO trilhas (nome, data, kms, localidade) VALUES (:nome, :kms, :localidade)";
         $stmt = $this->conn->prepare($sql);
         $stmt->bindParam(':nome', $nome);
-        $stmt->bindParam(':data', $data);
         $stmt->bindParam(':kms', $kms);
         $stmt->bindParam(':localidade', $localidade);
         $stmt->execute();
-}
+    }
 
-public function createPending(string $nome, string $telefone, string $email,string $morada, string $password): int
+    public function createPending(string $nome, string $telefone, string $email,string $morada, string $password): int
     {
         $sql = "
-        INSERT INTO users (is_admin, nome, telefone, email, morada, password, is_verified, verified_at, created_at, deleted_at)
-        VALUES (0, ?, ?, ?, ?, ?, 0, NULL, NOW(), NULL)
-    ";
+            INSERT INTO users (is_admin, nome, telefone, email, morada, password, is_verified, verified_at, created_at, deleted_at)
+            VALUES (0, ?, ?, ?, ?, ?, 0, NULL, NOW(), NULL)
+        ";
 
         $stmt = $this->conn->prepare($sql);
         $stmt->execute([$nome, $telefone, $email, $morada, $password]);

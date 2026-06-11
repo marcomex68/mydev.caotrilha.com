@@ -31,7 +31,6 @@
             <tr>
               <td><?= $trilha->getId() ?></td>
               <td><?= $trilha->getNome() ?></td>
-              <td><?= $trilha->getData() ?></td>
               <td><?= $trilha->getKms() ?></td>
               <td><?= $trilha->getLocalidade() ?></td>
               <td class="text-end">

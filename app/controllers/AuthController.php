@@ -6,6 +6,13 @@ require_once __DIR__ . "/../utils/Utils.php";
 require_once __DIR__ . '/../dao/EmailVerificationDAO.php';
 require_once __DIR__ . "/../services/MyMailerService.php";
 require_once __DIR__ . "/../config/jwt.php";
+require_once __DIR__ . "/../models/User.php";
+
+use Firebase\JWT\JWT;
+use Firebase\JWT\Key;
+use Firebase\JWT\ExpiredException;
+use Firebase\JWT\SignatureInvalidException;
+use Firebase\JWT\BeforeValidException;
  
 
 class AuthController
@@ -32,7 +39,7 @@ class AuthController
     }
 
     $user = (new UserDAO())->findByEmail($email);
-
+    
     if(!$user) {
       $_SESSION['toast'] = [
         'type' => 'error',
@@ -41,8 +48,12 @@ class AuthController
       header("Location: /login");
       exit;
     }
+
+
+
     // Utilizador foi encontrado - verificar password
     if(password_verify($password, $user->getPassword())) {
+       
       //var_dump("Password correta");
       $_SESSION['token'] = [
         'id' => $user->getId(),
@@ -55,18 +66,18 @@ class AuthController
         'type' => 'success',
         'message' => "Bem-vindo de volta, " . $user->getNome() . "!"
       ];
-
+        
        header("Location: /admin");
        exit;
       //header("Location: /");
       //exit;
     } else {
-      $_SESSION['toast'] = [
-        'type' => 'error',
-        'message' => "Dados de login inválidos"
-      ];
-      header("Location: /login");
-      exit;
+        $_SESSION['toast'] = [
+            'type' => 'error',
+            'message' => "Dados de login inválidos"
+        ];
+        header("Location: /login");
+        exit;
     }    
 
 }

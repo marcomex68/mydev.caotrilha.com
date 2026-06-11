@@ -5,17 +5,19 @@ require_once "../../app/utils/Utils.php";
 
 require "../../app/controllers/AuthController.php";
 
+require "../../app/controllers/CaesController.php";
+
+require "../../app/controllers/TrilhaController.php";
+
+require "../../app/middleware/AuthMiddleware.php";
+
 header("Content-Type: application/json; charset=UTF-8");
 
 $uri = parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH);
 $uri = str_replace("/api", "", $uri);
 $method = $_SERVER["REQUEST_METHOD"];
 
-var_dump($uri);
-var_dump($method);
-
-
-if ($method === "GET" && ($uri === "/" || $uri === "/help")) {
+if ($method === "GET" && ($uri === "/index" || $uri === "/" || $uri === "/help")) {
   $dataResponse = [
     "success" => true,
     "message" => "Como utilizar a API",
@@ -130,11 +132,18 @@ if ($method === "GET" && ($uri === "/" || $uri === "/help")) {
  
   (new AuthController())->loginApi();
  
+} elseif ($uri === "/caes" && $method === 'GET') {
+  $data = AuthMiddleware::check();
+  (new CaesController())->listarCaesDonoApi($data->id);
 }
-
-
-
-
+elseif ($uri === "/trilhas" && $method === 'GET') {
+  $data = AuthMiddleware::check();
+  (new TrilhaController())->listarTrilhasDonoApi($data->id);
+}
+elseif ($uri === "/addCao" && $method === 'POST') {
+  $data = AuthMiddleware::check();
+  (new CaesController())->createCaoApi($data->id);
+}
 
 
 else {

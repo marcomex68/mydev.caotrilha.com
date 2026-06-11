@@ -28,31 +28,17 @@ class User
  
 
   public function __construct(
-
     int $id = 0,
-
     bool $is_admin = false,
-
     string $nome = '',
-
-    int $telefone = 0,
-
+    string $telefone = '0',
     string $email = '',
-
     string $morada = '',
-
     string $password = '',
-
     bool $is_verified = false,
-
     string $verified_at = '',
-
     string $created_at = '',
-
     string $deleted_at = ''
-
-
-
   ) {
 
     $this->id = $id;
@@ -120,14 +106,14 @@ class User
     $this->nome = $nome;
   }
 
-  public function getTelefone(): int
+  public function getTelefone(): string
 
   {
 
     return $this->telefone;
   }
 
-  public function setTelefone(int $telefone): void
+  public function setTelefone(string $telefone): void
 
   {
 
@@ -230,5 +216,17 @@ class User
   {
 
     $this->deleted_at = $deleted_at;
+  }
+
+  public function toArray(): array
+  {
+    return [
+      'id' => $this->getId(),
+      'nome' => $this->getNome(),
+      'email' => $this->getEmail(),
+      'is_admin' => $this->getIsAdmin(),
+      'created_at' => $this->getCreatedAt(),
+      'deleted_at' => $this->getDeletedAt()
+    ];
   }
 }

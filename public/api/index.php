@@ -11,6 +11,8 @@ require "../../app/controllers/TrilhaController.php";
 
 require "../../app/middleware/AuthMiddleware.php";
 
+require "../../app/controllers/EstadiaController.php";
+
 header("Content-Type: application/json; charset=UTF-8");
 
 $uri = parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH);
@@ -144,6 +146,11 @@ elseif ($uri === "/addCao" && $method === 'POST') {
   $data = AuthMiddleware::check();
   (new CaesController())->createCaoApi($data->id);
 }
+elseif ($uri === "/estadia" && $method === 'GET') {
+  $data = AuthMiddleware::check();
+  (new EstadiaController())->listarEstadiasApi($data->id);
+}
+
 
 
 else {

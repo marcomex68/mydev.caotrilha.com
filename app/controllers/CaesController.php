@@ -83,4 +83,42 @@ class CaesController
         }
     }
 
+    public function detalheCaoApi($userId, $caoId): void
+    {
+        try {
+
+            $cao = (new CaesDAO())->detalheCao($userId,$caoId);
+
+            if ($cao) {
+                $dataResponse = [
+                    "success" => true,
+                    "message" => "Detalhes do cão obtidos com sucesso",
+                    "data" => [
+                        "cao" => $cao
+                    ]
+                ];
+            } else {
+                $dataResponse = [
+                    "success" => false,
+                    "message" => "Cão não encontrado",
+                    "data" => []
+                ];
+            }
+
+            Utils::jsonResponse($dataResponse);
+            exit;
+            
+        
+        } catch (Exception $e) {
+            $dataResponse = [
+                "success" => false,
+                "message" => $e->getMessage(),
+                "data" => []
+            ];
+
+            Utils::jsonResponse($dataResponse, 400);
+            exit;
+        }
+    }
+
 }

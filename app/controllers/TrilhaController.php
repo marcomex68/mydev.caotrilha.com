@@ -9,20 +9,20 @@ class TrilhaController
     {
 
         try {
-           $trilhas = (new TrilhaDAO())->listarTrilhasDono($donoId);
+            $trilhas = (new TrilhaDAO())->listarTrilhasDono($donoId);
 
             $dataResponse = [
                 "success" => true,
                 "message" => "Operação realizada com sucesso",
                 "data" => [
-                "trilhas" => $trilhas
+                    "trilhas" => $trilhas
                 ]
             ];
 
             Utils::jsonResponse($dataResponse);
             exit;
-            
-        
+
+
         } catch (Exception $e) {
             $dataResponse = [
                 "success" => false,
@@ -33,7 +33,7 @@ class TrilhaController
             Utils::jsonResponse($dataResponse, 400);
             exit;
         }
-        
+
 
     }
 
@@ -71,4 +71,40 @@ class TrilhaController
         }
     }
 
+    public function detalheTrilhaApi(int $trilhaId): void
+    {
+        try {
+            $trilha = (new TrilhaDAO())->detalheTrilha($trilhaId);
+
+            if ($trilha) {
+                $dataResponse = [
+                    "success" => true,
+                    "message" => "Detalhes da trilha obtidos com sucesso",
+                    "data" => [
+                        "trilha" => $trilha
+                    ]
+                ];
+                Utils::jsonResponse($dataResponse);
+                exit;
+            } else {
+                $dataResponse = [
+                    "success" => false,
+                    "message" => "Trilha não encontrada",
+                    "data" => []
+                ];
+                Utils::jsonResponse($dataResponse, 404);
+                exit;
+            }
+        } catch (Exception $e) {
+            $dataResponse = [
+                "success" => false,
+                "message" => $e->getMessage(),
+                "data" => []
+            ];
+
+            Utils::jsonResponse($dataResponse, 400);
+            exit;
+        }
+
+    }
 }

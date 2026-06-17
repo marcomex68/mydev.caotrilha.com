@@ -127,37 +127,59 @@ if ($method === "GET" && ($uri === "/index" || $uri === "/" || $uri === "/help")
   Utils::jsonResponse($dataResponse);
   exit;
 } elseif ($uri === "/signup" && $method === 'POST') {
- 
+
   (new AuthController())->signupApi();
- 
+
 } elseif ($uri === "/login" && $method === 'POST') {
- 
+
   (new AuthController())->loginApi();
- 
+
 } elseif ($uri === "/caes" && $method === 'GET') {
   $data = AuthMiddleware::check();
   (new CaesController())->listarCaesDonoApi($data->id);
-}
-elseif ($uri === "/trilhas" && $method === 'GET') {
+}elseif ($uri === "/caes" && $method === "GET") {
+    $data = AuthMiddleware::check();
+    (new CaesController())->listarCaesDonoApi(
+    (int) $data->id
+    );
+} 
+
+elseif (
+    preg_match('#^/caes/(\d+)$#', $uri, $matches)&& $method === "GET") {
+    $data = AuthMiddleware::check();
+    $caoId = (int) $matches[1];
+    (new CaesController())->detalheCaoApi(
+        (int) $data->id,
+        $caoId
+    );
+
+} elseif ($uri === "/trilhas" && $method === 'GET') {
   $data = AuthMiddleware::check();
   (new TrilhaController())->listarTrilhasDonoApi($data->id);
-}
-elseif ($uri === "/addCao" && $method === 'POST') {
+} elseif (preg_match('/\/trilhas\/(\d+)/', $uri, $matches) && $method === 'GET') {
+  
+  $trilhaId = $matches[1];
+  (new TrilhaController())->detalheTrilhaApi($trilhaId);
+} elseif ($uri === "/addCao" && $method === 'POST') {
   $data = AuthMiddleware::check();
   (new CaesController())->createCaoApi($data->id);
-}
-elseif ($uri === "/estadia" && $method === 'GET') {
+} elseif ($uri === "/estadia" && $method === 'GET') {
   $data = AuthMiddleware::check();
   (new EstadiaController())->listarEstadiasApi($data->id);
+
+} elseif (preg_match('/\/estadia\/(\d+)/', $uri, $matches) && $method === 'GET') {
+  $data = AuthMiddleware::check();
+  $estadiaId = $matches[1];
+  (new EstadiaController())->detalheEstadiaApi($data->id, $estadiaId);
+} elseif ($uri === "/user/profile" && $method === 'GET') {
+  $data = AuthMiddleware::check();
+  (new AuthController())->userProfileApi($data->id);
 }
-
-
-
 else {
   $dataResponse = [
     'success' => false,
     'message' => 'Not found.',
-    'data'    => []
+    'data' => []
   ];
 
   Utils::jsonResponse($dataResponse, 401);

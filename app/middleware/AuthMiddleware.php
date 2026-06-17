@@ -1,6 +1,7 @@
 <?php
 
 require_once __DIR__ . "/../config/jwt.php";
+require_once __DIR__ . "/../utils/Utils.php";
 
 use Firebase\JWT\JWT;
 use Firebase\JWT\Key;
@@ -10,99 +11,93 @@ use Firebase\JWT\BeforeValidException;
 
 class AuthMiddleware
 {
+    public static function getUser()
+    {
+        try {
+            $headers = getallheaders();
+            $authHeader = $headers['Authorization']
+                ?? $headers['authorization']
+                ?? null;
 
-  public static function getUser()
-  {
-    try {
-      $headers = getallheaders();
-      $authHeader = $headers['Authorization'] ?? $headers['authorization'] ?? null;
+            if (!$authHeader) {
+                throw new Exception("Token não enviado");
+            }
 
-      if (!$authHeader) {
-        throw new Exception("Token não enviado");
-      }
+            if (!preg_match('/Bearer\s+(\S+)/i', $authHeader, $matches)) {
+                throw new Exception("Formato do token inválido");
+            }
 
-      if (!preg_match('/Bearer\s+(\S+)/i', $authHeader, $matches)) {
-        throw new Exception("Formato do token inválido");
-      }
+            $token = $matches[1];
 
-      $token = $matches[1];
+            $decoded = JWT::decode(
+                $token,
+                new Key(JwtConfig::$secret, 'HS256')
+            );
 
-      $decoded = JWT::decode(
-        $token,
-        new Key(JwtConfig::$secret, 'HS256')
-      );
+            /**
+             * 🔥 CORREÇÃO IMPORTANTE:
+             * Nem todos os JWTs têm "data"
+             * alguns têm payload direto
+             */
 
-      return $decoded->data;
-      
-    } catch (ExpiredException $e) {
-      $dataResponse = [
-        'success' => false,
-        'message' => "Token expirado" . $e->getMessage(),
-        'data'    => []
-      ];
+            if (isset($decoded->data)) {
+                return $decoded->data;
+            }
 
-      Utils::jsonResponse($dataResponse, 401);
+            return $decoded;
 
-      exit;
-    } catch (SignatureInvalidException $e) {
-      $dataResponse = [
-        'success' => false,
-        'message' => "Assinatura do token inválida" . $e->getMessage(),
-        'data'    => []
-      ];
+        } catch (ExpiredException $e) {
+            Utils::jsonResponse([
+                'success' => false,
+                'message' => "Token expirado",
+                'data' => []
+            ], 401);
+            exit;
 
-      Utils::jsonResponse($dataResponse, 401);
+        } catch (SignatureInvalidException $e) {
+            Utils::jsonResponse([
+                'success' => false,
+                'message' => "Assinatura do token inválida",
+                'data' => []
+            ], 401);
+            exit;
 
-      exit;
-    } catch (BeforeValidException $e) {
-      $dataResponse = [
-        'success' => false,
-        'message' => "Token ainda não é válido" . $e->getMessage(),
-        'data'    => []
-      ];
+        } catch (BeforeValidException $e) {
+            Utils::jsonResponse([
+                'success' => false,
+                'message' => "Token ainda não é válido",
+                'data' => []
+            ], 401);
+            exit;
 
-      Utils::jsonResponse($dataResponse, 401);
-
-      exit;
-    } catch (Exception $e) {
-      $dataResponse = [
-        'success' => false,
-        'message' => "Assinatura do token inválida" . $e->getMessage(),
-        'data'    => []
-      ];
-
-      Utils::jsonResponse($dataResponse, 401);
-
-      exit;
-    }
-  }
-
-  public static function check()
-  {
-    return self::getUser();
-  }
-
-  public static function isAdmin()
-  {
-
-    $u = self::getUser();
-
-    if ($u->role) {
-      return true;
+        } catch (Exception $e) {
+            Utils::jsonResponse([
+                'success' => false,
+                'message' => $e->getMessage(),
+                'data' => []
+            ], 401);
+            exit;
+        }
     }
 
-    return false;
-  }
-
-  public static function checkRole($role)
-  {
-
-    $u = self::getUser();
-
-    if ($u->role !== $role) {
-      throw new Exception("sem acesso");
+    public static function check()
+    {
+        return self::getUser();
     }
-  }
 
-  
+    public static function isAdmin()
+    {
+        $u = self::getUser();
+
+        return isset($u->role) && $u->role === 'admin';
+    }
+
+    public static function checkRole($role)
+    {
+        $u = self::getUser();
+
+        if (!isset($u->role) || $u->role !== $role) {
+            throw new Exception("sem acesso");
+        }
+    }
 }

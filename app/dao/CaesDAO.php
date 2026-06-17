@@ -48,4 +48,21 @@ class CaesDAO
         $data['esterilizado']
     ]);
   }
+
+  public function detalheCao(int $userId, int $caoId): ?array
+    {
+      $sql = "
+        SELECT id, id_user, nome, raca, idade, estado, peso, sexo, esterilizado
+        FROM caes
+        WHERE id = ? AND id_user = ?
+    ";
+
+    $stmt = $this->conn->prepare($sql);
+    $stmt->execute([$caoId, $userId]);
+
+    $cao = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    return $cao ?: null;
+  }
 }
+

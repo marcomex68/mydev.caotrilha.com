@@ -116,9 +116,17 @@ elseif ($uri === '/caes' && $method === "GET") {
   (new WebController())->createTrilha();
 
 } elseif ($uri === '/createTrilha' && $method === "POST") {
-  
+  if (!$isLogin) {
+    $_SESSION['toast'] = [
+      'type' => 'error',
+      'message' => 'Acesso negado. Faça login para continuar.'
+    ];
+    header("Location: /login");
+    exit();
+  }
   (new AuthController())->createTrilhaWeb();
 }
+
 elseif ($uri === '/logout' && $method === "POST") {
   
   (new AuthController())->logoutWeb();

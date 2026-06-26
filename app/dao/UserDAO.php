@@ -83,46 +83,42 @@ class UserDAO
     }
 
     public function getCaes(): array
-    {
-        $sql = "
-    SELECT 
-        caes.*,
-        users.nome AS dono_nome,
-        trilhas.nome AS trilha_nome,
-        estadias.id AS estadia_id
-    FROM caes
-    INNER JOIN users ON caes.id_user = users.id
-    INNER JOIN trilhas ON caes.id_trilha = trilhas.id
-    INNER JOIN estadias ON caes.id_estadia = estadias.id
-";
+{
+    $sql = "
+        SELECT
+            caes.*,
+            users.nome AS dono_nome
+        FROM caes
+        INNER JOIN users ON caes.id_user = users.id
+    ";
 
-        $stmt = $this->conn->prepare($sql);
-        $stmt->execute();
+    $stmt = $this->conn->prepare($sql);
+    $stmt->execute();
 
-        $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    $rows = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-        $caes = [];
+    $caes = [];
 
-        foreach ($rows as $row) {
-            $caes[] = new Cao(
-                $row['id'],
-                $row['id_user'],
-                $row['id_trilha'],
-                $row['id_estadia'],
-                $row['nome'],
-                $row['raca'],
-                $row['idade'],
-                $row['peso'],
-                $row['sexo'],
-                $row['dono_nome'],
-                $row['esterilizado'],
-                $row['trilha_nome'],
-                $row['estadia_id']
-            );
-        }
-
-        return $caes;
+    foreach ($rows as $row) {
+        $caes[] = new Cao(
+            (int)$row['id'],
+            (int)$row['id_user'],
+            null,
+            null,
+            $row['nome'],
+            $row['raca'],
+            (int)$row['idade'],
+            (float)$row['peso'],
+            $row['sexo'],
+            $row['dono_nome'],
+            (bool)$row['esterilizado'],
+            null,
+            null
+        );
     }
+
+    return $caes;
+}
 
     public function getTrilhas(): array
     {
@@ -201,28 +197,46 @@ class UserDAO
         return (int) $stmt->fetchColumn();
     }
 
-   public function delete(int $id): void
-{
-    // apagar cães do utilizador
-    $sqlCaes = "DELETE FROM caes WHERE id_user = :id";
+    public function delete(int $id): void
+    {
+        // Apagar registos de caes_estadia
+        $sql = "
+            DELETE ce
+            FROM caes_estadia ce
+            INNER JOIN caes c ON ce.id_cao = c.id
+            WHERE c.id_user = :id
+        ";
 
-    $stmtCaes = $this->conn->prepare($sqlCaes);
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+        $stmt->execute();
 
-    $stmtCaes->bindParam(':id', $id, PDO::PARAM_INT);
+        // Apagar registos de cao_trilhas
+        $sql = "
+            DELETE ct
+            FROM cao_trilhas ct
+            INNER JOIN caes c ON ct.id_cao = c.id
+            WHERE c.id_user = :id
+        ";
 
-    $stmtCaes->execute();
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+        $stmt->execute();
 
+        // Apagar cães
+        $sql = "DELETE FROM caes WHERE id_user = :id";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+        $stmt->execute();
 
-    // apagar utilizador
-    $sqlUser = "DELETE FROM users WHERE id = :id";
+        // Apagar utilizador
+        $sql = "DELETE FROM users WHERE id = :id";
+        $stmt = $this->conn->prepare($sql);
+        $stmt->bindParam(':id', $id, PDO::PARAM_INT);
+        $stmt->execute();
+    }
 
-    $stmtUser = $this->conn->prepare($sqlUser);
-
-    $stmtUser->bindParam(':id', $id, PDO::PARAM_INT);
-
-    $stmtUser->execute();
-}
-
+    
     public function findByTrilhaNome(string $nome): ?Trilha
     {
         $sql = "SELECT * FROM trilhas WHERE nome = :nome LIMIT 1";
@@ -246,14 +260,18 @@ class UserDAO
 
      public function createTrilha(string $nome, string $data, float $kms, string $localidade): void
     {
-        $sql = "INSERT INTO trilhas (nome, data, kms, localidade) VALUES (:nome, :kms, :localidade)";
+        $sql = "INSERT INTO trilhas (nome, data, kms, localidade)
+                VALUES (:nome, :data, :kms, :localidade)";
+
         $stmt = $this->conn->prepare($sql);
+
         $stmt->bindParam(':nome', $nome);
+        $stmt->bindParam(':data', $data);
         $stmt->bindParam(':kms', $kms);
         $stmt->bindParam(':localidade', $localidade);
+
         $stmt->execute();
     }
-
     public function createPending(string $nome, string $telefone, string $email,string $morada, string $password): int
     {
         $sql = "

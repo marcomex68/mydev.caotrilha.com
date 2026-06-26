@@ -4,40 +4,34 @@ class Cao
 {
     private int $id;
     private int $id_user;
-    private int $id_trilha;
-    private int $id_estadia;
+    private ?int $id_trilha;
+    private ?int $id_estadia;
 
     private string $nome;
     private string $raca;
-
     private int $idade;
-
     private float $peso;
-
     private string $sexo;
-
     private string $dono_nome;
-
     private bool $esterilizado;
 
-    private string $trilha_nome;
-
-    private int $estadia_id;
+    private ?string $trilha_nome;
+    private ?int $estadia_id;
 
     public function __construct(
-        int $id = 0,
-        int $id_user = 0,
-        int $id_trilha = 0,
-        int $id_estadia = 0,
-        string $nome = '',
-        string $raca = '',
-        int $idade = 0,
-        float $peso = 0.0,
-        string $sexo = '',
-        string $dono_nome = '',
-        bool $esterilizado = false,
-        string $trilha_nome = '',
-        int $estadia_id = 0
+        int $id,
+        int $id_user,
+        ?int $id_trilha,
+        ?int $id_estadia,
+        string $nome,
+        string $raca,
+        int $idade,
+        float $peso,
+        string $sexo,
+        string $dono_nome,
+        bool $esterilizado,
+        ?string $trilha_nome = null,
+        ?int $estadia_id = null
     ) {
         $this->id = $id;
         $this->id_user = $id_user;
@@ -54,7 +48,6 @@ class Cao
         $this->estadia_id = $estadia_id;
     }
 
-    // ID
     public function getId(): int
     {
         return $this->id;
@@ -65,7 +58,6 @@ class Cao
         $this->id = $id;
     }
 
-    // ID USER
     public function getIdUser(): int
     {
         return $this->id_user;
@@ -76,29 +68,26 @@ class Cao
         $this->id_user = $id_user;
     }
 
-    // ID TRILHA
-    public function getIdTrilha(): int
+    public function getIdTrilha(): ?int
     {
         return $this->id_trilha;
     }
 
-    public function setIdTrilha(int $id_trilha): void
+    public function setIdTrilha(?int $id_trilha): void
     {
         $this->id_trilha = $id_trilha;
     }
 
-    // ID ESTADIA
-    public function getIdEstadia(): int
+    public function getIdEstadia(): ?int
     {
         return $this->id_estadia;
     }
 
-    public function setIdEstadia(int $id_estadia): void
+    public function setIdEstadia(?int $id_estadia): void
     {
         $this->id_estadia = $id_estadia;
     }
 
-    // NOME
     public function getNome(): string
     {
         return $this->nome;
@@ -109,7 +98,6 @@ class Cao
         $this->nome = $nome;
     }
 
-    // RAÇA
     public function getRaca(): string
     {
         return $this->raca;
@@ -120,7 +108,6 @@ class Cao
         $this->raca = $raca;
     }
 
-    // IDADE
     public function getIdade(): int
     {
         return $this->idade;
@@ -131,8 +118,6 @@ class Cao
         $this->idade = $idade;
     }
 
-
-    // PESO
     public function getPeso(): float
     {
         return $this->peso;
@@ -143,7 +128,6 @@ class Cao
         $this->peso = $peso;
     }
 
-    // SEXO
     public function getSexo(): string
     {
         return $this->sexo;
@@ -154,7 +138,6 @@ class Cao
         $this->sexo = $sexo;
     }
 
-    // DONO NOME
     public function getDonoNome(): string
     {
         return $this->dono_nome;
@@ -165,7 +148,6 @@ class Cao
         $this->dono_nome = $dono_nome;
     }
 
-    // ESTERILIZADO
     public function getEsterilizado(): bool
     {
         return $this->esterilizado;
@@ -176,25 +158,23 @@ class Cao
         $this->esterilizado = $esterilizado;
     }
 
-    // TRILHA NOME
-    public function getTrilhaNome(): string
+    public function getTrilhaNome(): ?string
     {
         return $this->trilha_nome;
     }
 
-    public function setTrilhaNome(string $trilha_nome): void
+    public function setTrilhaNome(?string $trilha_nome): void
     {
         $this->trilha_nome = $trilha_nome;
     }
 
-    // ESTADIA ID
-    public function getEstadiaId(): int
+    public function getEstadiaId(): ?int
     {
         return $this->estadia_id;
     }
 
-    public function setEstadiaId(int $estadia_id): void
+    public function setEstadiaId(?int $estadia_id): void
     {
         $this->estadia_id = $estadia_id;
     }
-} 
+}

@@ -5,17 +5,14 @@
 
     <input class="form-control" name="nome" placeholder="Nome da trilha" required>
 
-    <input type="date" class="form-control" name="data" required>
-
-    <input class="form-control" name="kms" placeholder="Distância (km)" required>
+    <input class="form-control" name="kms" placeholder="Distância (km)" type="number" step="0.01" required>
 
     <input class="form-control" name="localidade" placeholder="Localidade" required>
 
   </div>
 
   <div class="modal-footer">
-    <button class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+    <button class="btn btn-secondary" type="button">Cancelar</button>
     <button type="submit" class="btn btn-dark">Guardar</button>
   </div>
 </form>
-

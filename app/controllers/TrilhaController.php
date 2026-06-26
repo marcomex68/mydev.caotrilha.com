@@ -1,110 +1,68 @@
 <?php
 
 require_once __DIR__ . '/../dao/TrilhaDAO.php';
+require_once __DIR__ . '/../models/Trilha.php';
+require_once __DIR__ . '/../utils/Utils.php';
 
 class TrilhaController
 {
-
     public function listarTrilhasDonoApi(int $donoId): void
     {
+        $trilhas = (new TrilhaDAO())->listarTrilhasDono($donoId);
 
-        try {
-            $trilhas = (new TrilhaDAO())->listarTrilhasDono($donoId);
-
-            $dataResponse = [
-                "success" => true,
-                "message" => "Operação realizada com sucesso",
-                "data" => [
-                    "trilhas" => $trilhas
-                ]
-            ];
-
-            Utils::jsonResponse($dataResponse);
-            exit;
-
-
-        } catch (Exception $e) {
-            $dataResponse = [
-                "success" => false,
-                "message" => $e->getMessage(),
-                "data" => []
-            ];
-
-            Utils::jsonResponse($dataResponse, 400);
-            exit;
-        }
-
-
+        Utils::jsonResponse([
+            "success" => true,
+            "message" => "OK",
+            "data" => ["trilhas" => $trilhas]
+        ]);
     }
 
     public function createTrilhaApi(int $donoId): void
     {
         try {
-            $input = json_decode(file_get_contents('php://input'), true);
+            $input = json_decode(file_get_contents("php://input"), true);
 
             $trilha = new Trilha(
                 0,
                 $input['nome'] ?? '',
-                $input['kms'] ?? 0.0,
+                (float)($input['kms'] ?? 0),
                 $input['localidade'] ?? ''
             );
 
             (new TrilhaDAO())->createTrilha($trilha, $donoId);
 
-            $dataResponse = [
+            Utils::jsonResponse([
                 "success" => true,
-                "message" => "Trilha criada com sucesso",
+                "message" => "Criado",
                 "data" => []
-            ];
+            ]);
 
-            Utils::jsonResponse($dataResponse);
-            exit;
         } catch (Exception $e) {
-            $dataResponse = [
+            Utils::jsonResponse([
                 "success" => false,
                 "message" => $e->getMessage(),
                 "data" => []
-            ];
-
-            Utils::jsonResponse($dataResponse, 400);
-            exit;
+            ], 400);
         }
     }
 
-    public function detalheTrilhaApi(int $trilhaId): void
+    public function detalheTrilhaApi(int $id): void
     {
-        try {
-            $trilha = (new TrilhaDAO())->detalheTrilha($trilhaId);
+        $trilha = (new TrilhaDAO())->detalheTrilha($id);
 
-            if ($trilha) {
-                $dataResponse = [
-                    "success" => true,
-                    "message" => "Detalhes da trilha obtidos com sucesso",
-                    "data" => [
-                        "trilha" => $trilha
-                    ]
-                ];
-                Utils::jsonResponse($dataResponse);
-                exit;
-            } else {
-                $dataResponse = [
-                    "success" => false,
-                    "message" => "Trilha não encontrada",
-                    "data" => []
-                ];
-                Utils::jsonResponse($dataResponse, 404);
-                exit;
-            }
-        } catch (Exception $e) {
-            $dataResponse = [
+        if (!$trilha) {
+            Utils::jsonResponse([
                 "success" => false,
-                "message" => $e->getMessage(),
+                "message" => "Não encontrada",
                 "data" => []
-            ];
-
-            Utils::jsonResponse($dataResponse, 400);
-            exit;
+            ], 404);
+            return;
         }
 
+        Utils::jsonResponse([
+            "success" => true,
+            "message" => "OK",
+            "data" => ["trilha" => $trilha]
+        ]);
     }
 }
